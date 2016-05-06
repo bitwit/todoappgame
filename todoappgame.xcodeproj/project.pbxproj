@@ -7,6 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C856D5EBCDA9ED05C3F18F3 /* Pods_todoappgame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 422EB8DDFF472C4573CE9D97 /* Pods_todoappgame.framework */; };
+		750DF2B71CDCE53C0085CB22 /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750DF2B51CDCE53C0085CB22 /* Task+CoreDataProperties.swift */; };
+		750DF2B81CDCE53C0085CB22 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750DF2B61CDCE53C0085CB22 /* Task.swift */; };
+		750DF2BB1CDCEA7E0085CB22 /* data.yml in Resources */ = {isa = PBXBuildFile; fileRef = 750DF2BA1CDCEA7E0085CB22 /* data.yml */; };
+		750DF2BD1CDCEBE40085CB22 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 750DF2BC1CDCEBE40085CB22 /* data.json */; };
+		750DF2BF1CDCFF930085CB22 /* CollectionType+Shuffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750DF2BE1CDCFF930085CB22 /* CollectionType+Shuffle.swift */; };
+		750DF2C21CDD036E0085CB22 /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750DF2C11CDD036E0085CB22 /* ScoreView.swift */; };
+		750DF2C41CDD04170085CB22 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750DF2C31CDD04170085CB22 /* MainNavigationController.swift */; };
+		750DF2C81CDD088D0085CB22 /* AnimationWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750DF2C71CDD088D0085CB22 /* AnimationWindow.swift */; };
+		750DF2CA1CDD08B60085CB22 /* PointsParticleAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750DF2C91CDD08B60085CB22 /* PointsParticleAnimation.swift */; };
+		750DF2CD1CDD0E7D0085CB22 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750DF2CC1CDD0E7D0085CB22 /* Notifications.swift */; };
+		7543C92D1CDD139800E0E180 /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543C92C1CDD139800E0E180 /* BorderedButton.swift */; };
+		7543C92F1CDD141A00E0E180 /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543C92E1CDD141A00E0E180 /* IntroductionViewController.swift */; };
+		7543C9341CDD152300E0E180 /* PartialModalPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543C9311CDD152300E0E180 /* PartialModalPresentationController.swift */; };
+		7543C9351CDD152300E0E180 /* PartialModalTransitioner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543C9321CDD152300E0E180 /* PartialModalTransitioner.swift */; };
+		7543C9361CDD152300E0E180 /* PartialModalAnimatedTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543C9331CDD152300E0E180 /* PartialModalAnimatedTransitioning.swift */; };
+		7543C9381CDD172000E0E180 /* StoryboardReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543C9371CDD172000E0E180 /* StoryboardReference.swift */; };
+		7543C93A1CDD19F600E0E180 /* PauseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543C9391CDD19F600E0E180 /* PauseViewController.swift */; };
+		7543C93C1CDD1A1C00E0E180 /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543C93B1CDD1A1C00E0E180 /* GameOverViewController.swift */; };
+		7543C93F1CDD1B2C00E0E180 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543C93E1CDD1B2C00E0E180 /* MenuViewController.swift */; };
+		7543C9641CDD27C700E0E180 /* GameStatusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7543C9631CDD27C700E0E180 /* GameStatusView.xib */; };
+		7543C9661CDD290500E0E180 /* GameStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543C9651CDD290500E0E180 /* GameStatusView.swift */; };
+		7543C9681CDD29D600E0E180 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543C9671CDD29D600E0E180 /* Game.swift */; };
+		7543C96A1CDD3B8900E0E180 /* todos in Resources */ = {isa = PBXBuildFile; fileRef = 7543C9691CDD3B8900E0E180 /* todos */; };
 		756085501CDC36C1000B4199 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7560854F1CDC36C1000B4199 /* AppDelegate.swift */; };
 		756085531CDC36C1000B4199 /* todoappgame.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 756085511CDC36C1000B4199 /* todoappgame.xcdatamodeld */; };
 		756085551CDC36C2000B4199 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756085541CDC36C2000B4199 /* MasterViewController.swift */; };
@@ -17,6 +41,31 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		422EB8DDFF472C4573CE9D97 /* Pods_todoappgame.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_todoappgame.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6377B922A9F5B4B18F70B49D /* Pods-todoappgame.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-todoappgame.debug.xcconfig"; path = "Pods/Target Support Files/Pods-todoappgame/Pods-todoappgame.debug.xcconfig"; sourceTree = "<group>"; };
+		750DF2B51CDCE53C0085CB22 /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		750DF2B61CDCE53C0085CB22 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		750DF2BA1CDCEA7E0085CB22 /* data.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = data.yml; sourceTree = "<group>"; };
+		750DF2BC1CDCEBE40085CB22 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		750DF2BE1CDCFF930085CB22 /* CollectionType+Shuffle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CollectionType+Shuffle.swift"; sourceTree = "<group>"; };
+		750DF2C11CDD036E0085CB22 /* ScoreView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
+		750DF2C31CDD04170085CB22 /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+		750DF2C71CDD088D0085CB22 /* AnimationWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationWindow.swift; sourceTree = "<group>"; };
+		750DF2C91CDD08B60085CB22 /* PointsParticleAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointsParticleAnimation.swift; sourceTree = "<group>"; };
+		750DF2CC1CDD0E7D0085CB22 /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		7543C92C1CDD139800E0E180 /* BorderedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
+		7543C92E1CDD141A00E0E180 /* IntroductionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionViewController.swift; sourceTree = "<group>"; };
+		7543C9311CDD152300E0E180 /* PartialModalPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartialModalPresentationController.swift; sourceTree = "<group>"; };
+		7543C9321CDD152300E0E180 /* PartialModalTransitioner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartialModalTransitioner.swift; sourceTree = "<group>"; };
+		7543C9331CDD152300E0E180 /* PartialModalAnimatedTransitioning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartialModalAnimatedTransitioning.swift; sourceTree = "<group>"; };
+		7543C9371CDD172000E0E180 /* StoryboardReference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardReference.swift; sourceTree = "<group>"; };
+		7543C9391CDD19F600E0E180 /* PauseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PauseViewController.swift; sourceTree = "<group>"; };
+		7543C93B1CDD1A1C00E0E180 /* GameOverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
+		7543C93E1CDD1B2C00E0E180 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		7543C9631CDD27C700E0E180 /* GameStatusView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameStatusView.xib; sourceTree = "<group>"; };
+		7543C9651CDD290500E0E180 /* GameStatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameStatusView.swift; sourceTree = "<group>"; };
+		7543C9671CDD29D600E0E180 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		7543C9691CDD3B8900E0E180 /* todos */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = todos; sourceTree = "<group>"; };
 		7560854C1CDC36C1000B4199 /* todoappgame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = todoappgame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7560854F1CDC36C1000B4199 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		756085521CDC36C1000B4199 /* todoappgame.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = todoappgame.xcdatamodel; sourceTree = "<group>"; };
@@ -26,6 +75,7 @@
 		7560855B1CDC36C2000B4199 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7560855E1CDC36C2000B4199 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		756085601CDC36C2000B4199 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0466DA7D813C19DC4CD9CE5 /* Pods-todoappgame.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-todoappgame.release.xcconfig"; path = "Pods/Target Support Files/Pods-todoappgame/Pods-todoappgame.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +83,122 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C856D5EBCDA9ED05C3F18F3 /* Pods_todoappgame.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		21EDCEF8C44A3D60CED52647 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6377B922A9F5B4B18F70B49D /* Pods-todoappgame.debug.xcconfig */,
+				F0466DA7D813C19DC4CD9CE5 /* Pods-todoappgame.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		3A087385F734CD8B2DED44B7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				422EB8DDFF472C4573CE9D97 /* Pods_todoappgame.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		750DF2B91CDCEA5D0085CB22 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				750DF2BC1CDCEBE40085CB22 /* data.json */,
+				756085511CDC36C1000B4199 /* todoappgame.xcdatamodeld */,
+				750DF2B51CDCE53C0085CB22 /* Task+CoreDataProperties.swift */,
+				750DF2B61CDCE53C0085CB22 /* Task.swift */,
+				750DF2BA1CDCEA7E0085CB22 /* data.yml */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		750DF2C01CDD035D0085CB22 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7543C92B1CDD138900E0E180 /* Helpers */,
+				750DF2C61CDD08770085CB22 /* Points Animation */,
+				750DF2C11CDD036E0085CB22 /* ScoreView.swift */,
+				7543C9631CDD27C700E0E180 /* GameStatusView.xib */,
+				7543C9651CDD290500E0E180 /* GameStatusView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		750DF2C51CDD04230085CB22 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7543C93D1CDD1B1600E0E180 /* Menu View Controllers */,
+				7543C9301CDD14F400E0E180 /* Partial Modal */,
+				756085541CDC36C2000B4199 /* MasterViewController.swift */,
+				750DF2C31CDD04170085CB22 /* MainNavigationController.swift */,
+				756085561CDC36C2000B4199 /* DetailViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		750DF2C61CDD08770085CB22 /* Points Animation */ = {
+			isa = PBXGroup;
+			children = (
+				750DF2C71CDD088D0085CB22 /* AnimationWindow.swift */,
+				750DF2C91CDD08B60085CB22 /* PointsParticleAnimation.swift */,
+			);
+			name = "Points Animation";
+			sourceTree = "<group>";
+		};
+		750DF2CB1CDD0E6A0085CB22 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				750DF2CC1CDD0E7D0085CB22 /* Notifications.swift */,
+				7543C9671CDD29D600E0E180 /* Game.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		7543C92B1CDD138900E0E180 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				7543C9371CDD172000E0E180 /* StoryboardReference.swift */,
+				7543C92C1CDD139800E0E180 /* BorderedButton.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		7543C9301CDD14F400E0E180 /* Partial Modal */ = {
+			isa = PBXGroup;
+			children = (
+				7543C9311CDD152300E0E180 /* PartialModalPresentationController.swift */,
+				7543C9321CDD152300E0E180 /* PartialModalTransitioner.swift */,
+				7543C9331CDD152300E0E180 /* PartialModalAnimatedTransitioning.swift */,
+			);
+			name = "Partial Modal";
+			sourceTree = "<group>";
+		};
+		7543C93D1CDD1B1600E0E180 /* Menu View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7543C93E1CDD1B2C00E0E180 /* MenuViewController.swift */,
+				7543C92E1CDD141A00E0E180 /* IntroductionViewController.swift */,
+				7543C9391CDD19F600E0E180 /* PauseViewController.swift */,
+				7543C93B1CDD1A1C00E0E180 /* GameOverViewController.swift */,
+			);
+			name = "Menu View Controllers";
+			sourceTree = "<group>";
+		};
 		756085431CDC36C1000B4199 = {
 			isa = PBXGroup;
 			children = (
+				7543C9691CDD3B8900E0E180 /* todos */,
 				7560854E1CDC36C1000B4199 /* todoappgame */,
 				7560854D1CDC36C1000B4199 /* Products */,
+				21EDCEF8C44A3D60CED52647 /* Pods */,
+				3A087385F734CD8B2DED44B7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,14 +213,16 @@
 		7560854E1CDC36C1000B4199 /* todoappgame */ = {
 			isa = PBXGroup;
 			children = (
+				750DF2CB1CDD0E6A0085CB22 /* Services */,
+				750DF2C51CDD04230085CB22 /* Controllers */,
+				750DF2C01CDD035D0085CB22 /* Views */,
+				750DF2B91CDCEA5D0085CB22 /* Models */,
 				7560854F1CDC36C1000B4199 /* AppDelegate.swift */,
-				756085541CDC36C2000B4199 /* MasterViewController.swift */,
-				756085561CDC36C2000B4199 /* DetailViewController.swift */,
 				756085581CDC36C2000B4199 /* Main.storyboard */,
 				7560855B1CDC36C2000B4199 /* Assets.xcassets */,
 				7560855D1CDC36C2000B4199 /* LaunchScreen.storyboard */,
 				756085601CDC36C2000B4199 /* Info.plist */,
-				756085511CDC36C1000B4199 /* todoappgame.xcdatamodeld */,
+				750DF2BE1CDCFF930085CB22 /* CollectionType+Shuffle.swift */,
 			);
 			path = todoappgame;
 			sourceTree = "<group>";
@@ -77,9 +234,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 756085631CDC36C2000B4199 /* Build configuration list for PBXNativeTarget "todoappgame" */;
 			buildPhases = (
+				A0153706EF1A517A63A69ECF /* Check Pods Manifest.lock */,
 				756085481CDC36C1000B4199 /* Sources */,
 				756085491CDC36C1000B4199 /* Frameworks */,
 				7560854A1CDC36C1000B4199 /* Resources */,
+				D68C2BD31677C7FDC1990169 /* Embed Pods Frameworks */,
+				B631C6B0FE8779D704D4A973 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -128,23 +288,94 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7543C96A1CDD3B8900E0E180 /* todos in Resources */,
+				7543C9641CDD27C700E0E180 /* GameStatusView.xib in Resources */,
 				7560855F1CDC36C2000B4199 /* LaunchScreen.storyboard in Resources */,
 				7560855C1CDC36C2000B4199 /* Assets.xcassets in Resources */,
+				750DF2BB1CDCEA7E0085CB22 /* data.yml in Resources */,
+				750DF2BD1CDCEBE40085CB22 /* data.json in Resources */,
 				7560855A1CDC36C2000B4199 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A0153706EF1A517A63A69ECF /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B631C6B0FE8779D704D4A973 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-todoappgame/Pods-todoappgame-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D68C2BD31677C7FDC1990169 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-todoappgame/Pods-todoappgame-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		756085481CDC36C1000B4199 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7543C9661CDD290500E0E180 /* GameStatusView.swift in Sources */,
+				7543C9381CDD172000E0E180 /* StoryboardReference.swift in Sources */,
+				750DF2C41CDD04170085CB22 /* MainNavigationController.swift in Sources */,
 				756085501CDC36C1000B4199 /* AppDelegate.swift in Sources */,
+				750DF2C21CDD036E0085CB22 /* ScoreView.swift in Sources */,
+				7543C93C1CDD1A1C00E0E180 /* GameOverViewController.swift in Sources */,
 				756085531CDC36C1000B4199 /* todoappgame.xcdatamodeld in Sources */,
+				750DF2C81CDD088D0085CB22 /* AnimationWindow.swift in Sources */,
+				7543C9351CDD152300E0E180 /* PartialModalTransitioner.swift in Sources */,
 				756085551CDC36C2000B4199 /* MasterViewController.swift in Sources */,
+				7543C92F1CDD141A00E0E180 /* IntroductionViewController.swift in Sources */,
+				7543C93F1CDD1B2C00E0E180 /* MenuViewController.swift in Sources */,
+				7543C9361CDD152300E0E180 /* PartialModalAnimatedTransitioning.swift in Sources */,
+				750DF2CA1CDD08B60085CB22 /* PointsParticleAnimation.swift in Sources */,
+				750DF2BF1CDCFF930085CB22 /* CollectionType+Shuffle.swift in Sources */,
+				7543C92D1CDD139800E0E180 /* BorderedButton.swift in Sources */,
+				7543C9341CDD152300E0E180 /* PartialModalPresentationController.swift in Sources */,
+				750DF2B71CDCE53C0085CB22 /* Task+CoreDataProperties.swift in Sources */,
+				7543C93A1CDD19F600E0E180 /* PauseViewController.swift in Sources */,
+				750DF2B81CDCE53C0085CB22 /* Task.swift in Sources */,
+				750DF2CD1CDD0E7D0085CB22 /* Notifications.swift in Sources */,
 				756085571CDC36C2000B4199 /* DetailViewController.swift in Sources */,
+				7543C9681CDD29D600E0E180 /* Game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,9 +486,11 @@
 		};
 		756085641CDC36C2000B4199 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6377B922A9F5B4B18F70B49D /* Pods-todoappgame.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = todoappgame/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ca.bitwit.todoappgame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -266,9 +499,11 @@
 		};
 		756085651CDC36C2000B4199 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F0466DA7D813C19DC4CD9CE5 /* Pods-todoappgame.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = todoappgame/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ca.bitwit.todoappgame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -294,6 +529,7 @@
 				756085651CDC36C2000B4199 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

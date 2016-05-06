@@ -1,0 +1,6 @@
+framework module BWSwipeRevealCell {
+  umbrella header "BWSwipeRevealCell-umbrella.h"
+
+  export *
+  module * { export * }
+}

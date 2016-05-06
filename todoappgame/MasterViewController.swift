@@ -8,71 +8,194 @@
 
 import UIKit
 import CoreData
+import BWSwipeRevealCell
 
-class MasterViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class MasterViewController: UITableViewController {
+    
+    private var isFirstAppearance = true
+    private var gameStatusView:GameStatusView?
 
-    var detailViewController: DetailViewController? = nil
+    // Data
     var managedObjectContext: NSManagedObjectContext? = nil
-
-
+    var allTasks: [String]
+    var possibleTasks: [String] = []
+    
+    // Timer
+    var shouldAddTasks = true
+    var gameTimer: NSTimer?
+    
+    required init?(coder aDecoder: NSCoder) {
+        
+        let path = NSBundle.mainBundle().pathForResource("data.json", ofType: nil)!
+        let fileManager = NSFileManager.defaultManager()
+        let data:NSData? = fileManager.contentsAtPath(path)
+        let jsonData = try! NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)
+        
+        allTasks = (jsonData as! [String])
+        
+        super.init(coder:aDecoder)
+        
+        Notifications.observe(self, selector: #selector(newGame), type: .New)
+        Notifications.observe(self, selector: #selector(pause), type: .Pause)
+        Notifications.observe(self, selector: #selector(resume), type: .Resume)
+        Notifications.observe(self, selector: #selector(endGame), type: .End)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        self.navigationItem.leftBarButtonItem = self.editButtonItem()
-
-        let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
-        self.navigationItem.rightBarButtonItem = addButton
-        if let split = self.splitViewController {
-            let controllers = split.viewControllers
-            self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
+        
+        let menuButton = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: #selector(pause))
+        
+        loadGameStatusView()
+        self.navigationItem.leftBarButtonItem = menuButton
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if isFirstAppearance {
+            displayIntro()
+            isFirstAppearance = false
         }
     }
-
-    override func viewWillAppear(animated: Bool) {
-        self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
-        super.viewWillAppear(animated)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    func insertNewObject(sender: AnyObject) {
-        let context = self.fetchedResultsController.managedObjectContext
-        let entity = self.fetchedResultsController.fetchRequest.entity!
-        let newManagedObject = NSEntityDescription.insertNewObjectForEntityForName(entity.name!, inManagedObjectContext: context)
-             
-        // If appropriate, configure the new managed object.
-        // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-        newManagedObject.setValue(NSDate(), forKey: "timeStamp")
-             
-        // Save the context.
-        do {
-            try context.save()
-        } catch {
-            // Replace this implementation with code to handle the error appropriately.
-            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            //print("Unresolved error \(error), \(error.userInfo)")
-            abort()
-        }
-    }
-
-    // MARK: - Segues
-
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showDetail" {
-            if let indexPath = self.tableView.indexPathForSelectedRow {
-            let object = self.fetchedResultsController.objectAtIndexPath(indexPath)
-                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
-                controller.detailItem = object
-                controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
-                controller.navigationItem.leftItemsSupplementBackButton = true
+    
+    func loadGameStatusView() {
+    
+        let nib = NSBundle.mainBundle().loadNibNamed("GameStatusView", owner: nil, options: nil)
+        for object in nib {
+            if let o = object as? GameStatusView {
+                gameStatusView = o
+                break
             }
         }
+        
+        navigationItem.titleView = gameStatusView
+    }
+    
+   
+    // MARK: Timer Stuff
+    
+    func startTimer() {
+    
+        gameTimer?.invalidate() // Safety measure, though timer calls *should* be balanced
+        gameTimer = NSTimer.scheduledTimerWithTimeInterval(Game.timerInterval, target: self, selector: #selector(tick), userInfo: nil, repeats: true)
+    }
+    
+    func stopTimer() {
+    
+        gameTimer?.invalidate()
+    }
+    
+    
+    // MARK: Game Control
+    
+    func displayIntro() {
+    
+        let intro = StoryboardReference("Main", "Introduction").instantiate()
+        presentViewController(intro, animated: true, completion: nil)
+    }
+    
+    func displayGameOver() {
+    
+        let intro = StoryboardReference("Main", "GameOver").instantiate()
+        presentViewController(intro, animated: true, completion: nil)
+    }
+    
+    func newGame() {
+        
+        Game.onReset()
+        Notifications.post(.Reset)
+        
+        possibleTasks = allTasks.shuffle()
+        fetchedResultsController.managedObjectContext.rollback()
+        
+        dismissViewControllerAnimated(true) {
+            self.startTimer()
+            self.gameTimer!.fire()
+        }
+    }
+    
+    func pause() {
+        
+        stopTimer()
+        
+        let intro = StoryboardReference("Main", "Pause").instantiate()
+        presentViewController(intro, animated: true, completion: nil)
+    }
+    
+    func resume() {
+    
+        dismissViewControllerAnimated(true) {
+            self.startTimer()
+        }
+    }
+    
+    func endGame() {
+        
+        stopTimer()
+        
+        if let _ = presentedViewController {
+            
+            dismissViewControllerAnimated(true) {
+                self.displayIntro()
+            }
+        } else {
+            
+            displayGameOver()
+        }
+    
+    }
+    
+    func tick() {
+        
+        Game.onTick()
+        Notifications.post(.Tick)
+        
+        if Game.time > Game.maxTime {
+            endGame()
+        } else {
+            insertNewObject()
+        }
     }
 
+    func insertNewObject() {
+        
+        guard shouldAddTasks else {
+            return
+        }
+        
+        guard let taskTitle = possibleTasks.popLast() else {
+            return
+        }
+        
+        let context = self.fetchedResultsController.managedObjectContext
+        let entity = self.fetchedResultsController.fetchRequest.entity!
+        let task:Task = NSEntityDescription.insertNewObjectForEntityForName(entity.name!, inManagedObjectContext: context) as! Task
+        
+        task.timeStamp = NSDate()
+        task.title = taskTitle
+    }
+
+    
+    // MARK: - Segues
+
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if segue.identifier == "showDetail" {
+//            if let indexPath = self.tableView.indexPathForSelectedRow {
+//            let object = self.fetchedResultsController.objectAtIndexPath(indexPath)
+//                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
+//                controller.detailItem = object
+//                controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
+//                controller.navigationItem.leftItemsSupplementBackButton = true
+//            }
+//        }
+//    }
+
+    
     // MARK: - Table View
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 80
+    }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return self.fetchedResultsController.sections?.count ?? 0
@@ -84,37 +207,19 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-        let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as! NSManagedObject
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! BWSwipeRevealCell
+        let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Task
         self.configureCell(cell, withObject: object)
         return cell
     }
 
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    func configureCell(cell: BWSwipeRevealCell, withObject task: Task) {
+        cell.revealDirection = .Both
+        cell.delegate = self
+        cell.textLabel!.text = task.title
     }
 
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            let context = self.fetchedResultsController.managedObjectContext
-            context.deleteObject(self.fetchedResultsController.objectAtIndexPath(indexPath) as! NSManagedObject)
-                
-            do {
-                try context.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                //print("Unresolved error \(error), \(error.userInfo)")
-                abort()
-            }
-        }
-    }
-
-    func configureCell(cell: UITableViewCell, withObject object: NSManagedObject) {
-        cell.textLabel!.text = object.valueForKey("timeStamp")!.description
-    }
-
+    
     // MARK: - Fetched results controller
 
     var fetchedResultsController: NSFetchedResultsController {
@@ -124,7 +229,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         
         let fetchRequest = NSFetchRequest()
         // Edit the entity name as appropriate.
-        let entity = NSEntityDescription.entityForName("Event", inManagedObjectContext: self.managedObjectContext!)
+        let entity = NSEntityDescription.entityForName("Task", inManagedObjectContext: self.managedObjectContext!)
         fetchRequest.entity = entity
         
         // Set the batch size to a suitable number.
@@ -154,6 +259,10 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }    
     var _fetchedResultsController: NSFetchedResultsController? = nil
 
+}
+
+extension MasterViewController: NSFetchedResultsControllerDelegate {
+
     func controllerWillChangeContent(controller: NSFetchedResultsController) {
         self.tableView.beginUpdates()
     }
@@ -172,11 +281,11 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
         switch type {
             case .Insert:
-                tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
+                tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Top)
             case .Delete:
-                tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
+                tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Left)
             case .Update:
-                self.configureCell(tableView.cellForRowAtIndexPath(indexPath!)!, withObject: anObject as! NSManagedObject)
+                self.configureCell(tableView.cellForRowAtIndexPath(indexPath!) as! BWSwipeRevealCell, withObject: anObject as! Task)
             case .Move:
                 tableView.moveRowAtIndexPath(indexPath!, toIndexPath: newIndexPath!)
         }
@@ -194,6 +303,41 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
          self.tableView.reloadData()
      }
      */
-
 }
 
+extension MasterViewController: BWSwipeRevealCellDelegate {
+    
+    func swipeCellDidStartSwiping(cell: BWSwipeCell) {
+        shouldAddTasks = false
+    }
+    
+    func swipeCellDidCompleteRelease(cell: BWSwipeCell) {
+        
+        shouldAddTasks = true
+        
+        guard cell.state != .Normal else { return }
+        
+        switch cell.state {
+        case .PastThresholdLeft, .PastThresholdRight:
+            let points = 3
+            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            let rootView = appDelegate.window!
+            
+            let x = CGRectGetMaxX(cell.frame) - 20
+            let y = CGRectGetMidY(cell.frame)
+            
+            let from:CGPoint = cell.superview!.convertPoint(CGPointMake(x, y), toView: rootView)
+            let to: CGPoint = CGPointMake(from.x, 40)
+            
+            let totalPoints = Game.onTaskCompletion(points)
+            AnimationWindow.sharedInstance.runPointsAnimation(from, to: to, points:totalPoints)
+            
+            if let idx = tableView.indexPathForCell(cell), let task = fetchedResultsController.fetchedObjects![idx.row] as? Task {
+                fetchedResultsController.managedObjectContext.deleteObject(task)
+            }
+        default: break
+        }
+        
+    }
+    
+}

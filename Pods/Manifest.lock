@@ -1,1 +1,10 @@
+PODS:
+  - BWSwipeRevealCell (1.0.0)
+
+DEPENDENCIES:
+  - BWSwipeRevealCell (= 1.0.0)
+
+SPEC CHECKSUMS:
+  BWSwipeRevealCell: 3dbcd9f62c11b60c932e894ec9c6230dd7b94184
+
 COCOAPODS: 0.39.0

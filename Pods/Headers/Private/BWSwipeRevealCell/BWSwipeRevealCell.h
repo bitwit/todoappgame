@@ -1,0 +1,1 @@
+../../../BWSwipeRevealCell/BWSwipeRevealCell/BWSwipeRevealCell.h
