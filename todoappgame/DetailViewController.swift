@@ -57,7 +57,7 @@ class DetailViewController: UITableViewController {
         if indexPath.row < detailItem.subtasks.count {
             return 60
         } else {
-            return 240
+            return 340
         }
     }
     

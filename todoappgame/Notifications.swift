@@ -9,6 +9,8 @@ enum NotificationType: String {
     case End = "shouldEndGame"
     
     case Tick = "gameTick"
+    
+    case AddTask = "shouldAddTask"
     case TaskCompletion = "taskDidComplete"
     case IncrementPoints = "shouldIncrementPointsDisplay"
 }

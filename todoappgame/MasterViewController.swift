@@ -32,7 +32,7 @@ class MasterViewController: UITableViewController {
         Notifications.observe(self, selector: #selector(pause), type: .Pause)
         Notifications.observe(self, selector: #selector(resume), type: .Resume)
         Notifications.observe(self, selector: #selector(endGame), type: .End)
-        Notifications.observe(self, selector: #selector(tick), type: .Tick)
+        Notifications.observe(self, selector: #selector(tick), type: .AddTask)
     }
     
     override func viewDidLoad() {
@@ -92,7 +92,7 @@ class MasterViewController: UITableViewController {
         dismissViewControllerAnimated(true) {
         
             Game.start()
-            self.insertNewObject(5)
+            self.insertNewObject(8)
             self.navigationController?.popToRootViewControllerAnimated(true)
         }
     }

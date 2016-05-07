@@ -27,19 +27,36 @@ class SaveCell: UITableViewCell {
         saveButton.userInteractionEnabled = false
         saveButton.backgroundColor = UIColor.greenColor()
         
+        // Start moving the button once we are 35% into the game
+        if Game.time / Game.maxTime > 0.35 {
+            animateButton()
+        }
+    }
+    
+    func animateButton() {
+    
         animateDown()
+    }
+    
+    func durationForAnimation() -> NSTimeInterval {
+        
+        // Start moving the button FASTER once we are 70% into the game
+        if Game.time / Game.maxTime > 0.70 {
+            return 0.5
+        }
+        return 1
     }
     
     func animateDown() {
         
-        UIView.animateWithDuration(1, delay: 0, options: .CurveEaseInOut, animations: {
+        UIView.animateWithDuration(durationForAnimation(), delay: 0, options: .CurveEaseInOut, animations: {
             [weak self] in
             
             guard let this = self else {
                 return
             }
             
-            this.saveButton.center = CGPointMake(this.saveButton.center.x, this.saveButton.center.y + 140)
+            this.saveButton.center = CGPointMake(this.saveButton.center.x, this.saveButton.center.y + 210)
             
             }, completion: {
                 [weak self] _ in
@@ -49,14 +66,14 @@ class SaveCell: UITableViewCell {
     
     func animateUp() {
         
-        UIView.animateWithDuration(1, delay: 0, options: .CurveEaseInOut, animations: {
+        UIView.animateWithDuration(durationForAnimation(), delay: 0, options: .CurveEaseInOut, animations: {
             [weak self] in
             
             guard let this = self else {
                 return
             }
             
-            this.saveButton.center = CGPointMake(this.saveButton.center.x, this.saveButton.center.y - 140)
+            this.saveButton.center = CGPointMake(this.saveButton.center.x, this.saveButton.center.y - 210)
             
             }, completion: {
                 [weak self] _ in
