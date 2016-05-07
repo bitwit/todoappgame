@@ -54,7 +54,7 @@ class ScoreView: UIView {
         self.currentPoints += 1
         self.pointsLabel.text = String(self.currentPoints)
         self.animatePointsScaleUp()
-//        Chirp.sharedManager.playSoundType(SoundType.PointCollected)
+        Chirp.sharedManager.playSoundType(.Point)
     }
     
     func animatePointsScaleUp() {

@@ -1,72 +1,218 @@
 [
-  "Grow a 3ft beard",
-  "Visit the moon",
-  "Befriend a monkey",
-  "Ride a hippo",
-  "Climb Everest... naked",
-  "Karate chop a laptop",
-  "Start a new nation",
-  "Eliminate personal dependence on fossil fuels",
-  "Surf a Tsunami",
-  "Handglide during a Hurricane",
-  "Vault over a Volcano",
-  "Wear 3 pairs of pants",
-  "Learn 4 spoken languages",
-  "Get knighted by the Queen",
-  "Become President of the USA",
-  "Make a video game in assembly code",
-  "Build & program Skynet",
-  "Go back to the future",
-  "Get lost in space",
-  "Partake in a Star War",
-  "Wear an oversized feathery hat",
-  "Disprove gravity",
-  "EGOT",
-  "Protect Hell's Kitchen",
-  "Gain superpower from a thunderstorm",
-  "Purchase sunglasses that expose consumerist aliens",
-  "Become a rock and roll legend",
-  "Help horse do a keg stand",
-  "Fart the alphabet",
-  "Shampoo a Kangaroo",
-  "Teach a monkey sign language",
-  "Write a 6 part mini series for TV",
-  "Fight crime while in a costume",
-  "Befriend an android butler",
-  "Reach a state of total enlightenment",
-  "Catch an underpants gnome",
-  "Turn a company in a dying industry around",
-  "Grow a third eye",
-  "Grow an apple tree and make pie",
-  "Pivot",
-  "Go agile",
-  "Start a startup and fail then succeed",
-  "Develop a brand line of perfumes",
-  "Invent a smell",
-  "Taste a color",
-  "Swim with the salmon",
-  "Open a Mom & Pop gun shop",
-  "Deliver a keynote speech in place of Tim Cook",
-  "Swim across the Atlantic",
-  "Levitate",
-  "Mind control a squirrel into mischief",
-  "Host the Oscars",
-  "Switch spots with mirror self",
-  "Sing Chocolate Rain in an Opera Theatre",
-  "Open Pandora's box",
-  "Ride a hoverboard while wielding a lightsaber to fight off orcs",
-  "Eat a star",
-  "Create a new genre of music",
-  "Star in a performance of CATS On Ice",
-  "Sing for Kim Jong Un to mend international relations",
-  "Grow a redwood tree in backyard",
-  "Adopt a laser cat",
-  "Go viral",
-  "Jump back and forth in time after reading from a diary",
-  "Go through a wormhole",
-  "Play bassoon for a raccoon",
-  "Overcome a zombie virus infection",
-  "Donate hair to Donald Trump",
-  "Enter a friend's dream within a dream",
-  "Make this game"
+  {
+    "Grow a 3ft beard": 3
+  },
+  {
+    "Visit the moon": 3
+  },
+  {
+    "Befriend a monkey": 3
+  },
+  {
+    "Ride a hippo": 3
+  },
+  {
+    "Climb Everest... naked": 3
+  },
+  {
+    "Karate chop a laptop": 3
+  },
+  {
+    "Start a new nation": 3
+  },
+  {
+    "Eliminate personal dependence on fossil fuels": 3
+  },
+  {
+    "Surf a Tsunami": 3
+  },
+  {
+    "Handglide during a Hurricane": 3
+  },
+  {
+    "Vault over a Volcano": 3
+  },
+  {
+    "Wear 3 pairs of pants": 2
+  },
+  {
+    "Learn 4 spoken languages": 2
+  },
+  {
+    "Get knighted by the Queen": 2
+  },
+  {
+    "Become President of the USA": 2
+  },
+  {
+    "Make a video game in assembly code": 2
+  },
+  {
+    "Build & program Skynet": 2
+  },
+  {
+    "Go back to the future": 2
+  },
+  {
+    "Get lost in space": 2
+  },
+  {
+    "Partake in a Star War": 2
+  },
+  {
+    "Wear an oversized feathery hat": 2
+  },
+  {
+    "Disprove gravity": 2
+  },
+  {
+    "EGOT": 4
+  },
+  {
+    "Protect Hell's Kitchen": 4
+  },
+  {
+    "Gain superpower from a thunderstorm": 4
+  },
+  {
+    "Purchase sunglasses that expose consumerist aliens": 4
+  },
+  {
+    "Become a rock and roll legend": 4
+  },
+  {
+    "Help horse do a keg stand": 4
+  },
+  {
+    "Fart the alphabet": 4
+  },
+  {
+    "Shampoo a Kangaroo": 4
+  },
+  {
+    "Teach a monkey sign language": 4
+  },
+  {
+    "Write a 6 part mini series for TV": 4
+  },
+  {
+    "Fight crime while in a costume": 4
+  },
+  {
+    "Befriend an android butler": 1
+  },
+  {
+    "Reach a state of total enlightenment": 1
+  },
+  {
+    "Catch an underpants gnome": 1
+  },
+  {
+    "Turn a company in a dying industry around": 1
+  },
+  {
+    "Grow a third eye": 1
+  },
+  {
+    "Grow an apple tree and make pie": 1
+  },
+  {
+    "Pivot": 1
+  },
+  {
+    "Go agile": 1
+  },
+  {
+    "Start a startup and fail then succeed": 1
+  },
+  {
+    "Develop a brand line of perfumes": 1
+  },
+  {
+    "Invent a smell": 1
+  },
+  {
+    "Taste a color": 1
+  },
+  {
+    "Swim with the salmon": 1
+  },
+  {
+    "Open a Mom & Pop gun shop": 1
+  },
+  {
+    "Deliver a keynote speech in place of Tim Cook": 2
+  },
+  {
+    "Swim across the Atlantic": 2
+  },
+  {
+    "Levitate": 2
+  },
+  {
+    "Mind control a squirrel into mischief": 2
+  },
+  {
+    "Host the Oscars": 2
+  },
+  {
+    "Switch spots with mirror self": 2
+  },
+  {
+    "Sing Chocolate Rain in an Opera Theatre": 4
+  },
+  {
+    "Open Pandora's box": 4
+  },
+  {
+    "Ride a hoverboard while wielding a lightsaber to fight off orcs": 4
+  },
+  {
+    "Eat a star": 4
+  },
+  {
+    "Create a new genre of music": 1
+  },
+  {
+    "Star in a performance of CATS On Ice": 1
+  },
+  {
+    "Sing for Kim Jong Un to mend international relations": 1
+  },
+  {
+    "Grow a redwood tree in backyard": 1
+  },
+  {
+    "Adopt a laser cat": 1
+  },
+  {
+    "Go viral": 1
+  },
+  {
+    "Jump back and forth in time after reading from a diary": 1
+  },
+  {
+    "Go through a wormhole": 1
+  },
+  {
+    "Play bassoon for a raccoon": 1
+  },
+  {
+    "Overcome a zombie virus infection": 1
+  },
+  {
+    "Donate hair to Donald Trump": 1
+  },
+  {
+    "Enter a friend's dream within a dream": 1
+  },
+  {
+    "Make this game": 1
+  },
+  {
+    "Lick your elbow": 1
+  },
+  {
+    "Kiss the Queen and use tongue": 1
+  }
 ]

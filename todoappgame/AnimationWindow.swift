@@ -35,6 +35,33 @@ final class AnimationWindow: UIWindow {
         }
     }
     
+    func runMultiplierAnimation(from:CGPoint, withValue value:Int) {
+        
+        let label = UILabel(frame: CGRectMake(from.x - 50, from.y - 20, 100, 40))
+        label.font = UIFont.systemFontOfSize(32)
+        label.text = "x\(value)"
+        label.textColor = UIColor.orangeColor()
+        label.textAlignment = .Center
+        label.alpha = 0
+        self.rootViewController!.view.addSubview(label)
+        
+        UIView.animateWithDuration(0.2, animations: {
+            
+            label.alpha = 1
+            label.transform = CGAffineTransformMakeTranslation(0, -4)
+            
+            }, completion: { _ in
+        
+            UIView.animateWithDuration(1, animations: {
+                
+                label.alpha = 0
+                label.transform = CGAffineTransformMakeTranslation(0, -20)
+                }, completion: { _ in
+                    label.removeFromSuperview()
+            })
+        })
+    }
+    
 }
 
 

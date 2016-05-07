@@ -31,6 +31,13 @@
 		7543C9661CDD290500E0E180 /* GameStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543C9651CDD290500E0E180 /* GameStatusView.swift */; };
 		7543C9681CDD29D600E0E180 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543C9671CDD29D600E0E180 /* Game.swift */; };
 		7543C96A1CDD3B8900E0E180 /* todos in Resources */ = {isa = PBXBuildFile; fileRef = 7543C9691CDD3B8900E0E180 /* todos */; };
+		7543C9721CDD539400E0E180 /* chime_done.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7543C96D1CDD539400E0E180 /* chime_done.wav */; };
+		7543C9731CDD539400E0E180 /* chime_game_over.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7543C96E1CDD539400E0E180 /* chime_game_over.wav */; };
+		7543C9741CDD539400E0E180 /* chime_pause.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7543C96F1CDD539400E0E180 /* chime_pause.wav */; };
+		7543C9751CDD539400E0E180 /* chime_point.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7543C9701CDD539400E0E180 /* chime_point.wav */; };
+		7543C9761CDD539400E0E180 /* chime_start.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7543C9711CDD539400E0E180 /* chime_start.wav */; };
+		7543C9781CDD53A900E0E180 /* Chirp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543C9771CDD53A900E0E180 /* Chirp.swift */; };
+		7543C97B1CDD66AE00E0E180 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543C97A1CDD66AE00E0E180 /* TaskCell.swift */; };
 		756085501CDC36C1000B4199 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7560854F1CDC36C1000B4199 /* AppDelegate.swift */; };
 		756085531CDC36C1000B4199 /* todoappgame.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 756085511CDC36C1000B4199 /* todoappgame.xcdatamodeld */; };
 		756085551CDC36C2000B4199 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756085541CDC36C2000B4199 /* MasterViewController.swift */; };
@@ -66,6 +73,13 @@
 		7543C9651CDD290500E0E180 /* GameStatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameStatusView.swift; sourceTree = "<group>"; };
 		7543C9671CDD29D600E0E180 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		7543C9691CDD3B8900E0E180 /* todos */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = todos; sourceTree = "<group>"; };
+		7543C96D1CDD539400E0E180 /* chime_done.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = chime_done.wav; sourceTree = "<group>"; };
+		7543C96E1CDD539400E0E180 /* chime_game_over.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = chime_game_over.wav; sourceTree = "<group>"; };
+		7543C96F1CDD539400E0E180 /* chime_pause.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = chime_pause.wav; sourceTree = "<group>"; };
+		7543C9701CDD539400E0E180 /* chime_point.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = chime_point.wav; sourceTree = "<group>"; };
+		7543C9711CDD539400E0E180 /* chime_start.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = chime_start.wav; sourceTree = "<group>"; };
+		7543C9771CDD53A900E0E180 /* Chirp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chirp.swift; sourceTree = "<group>"; };
+		7543C97A1CDD66AE00E0E180 /* TaskCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		7560854C1CDC36C1000B4199 /* todoappgame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = todoappgame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7560854F1CDC36C1000B4199 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		756085521CDC36C1000B4199 /* todoappgame.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = todoappgame.xcdatamodel; sourceTree = "<group>"; };
@@ -122,8 +136,9 @@
 		750DF2C01CDD035D0085CB22 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7543C9791CDD669E00E0E180 /* Cells */,
 				7543C92B1CDD138900E0E180 /* Helpers */,
-				750DF2C61CDD08770085CB22 /* Points Animation */,
+				750DF2C61CDD08770085CB22 /* Effects */,
 				750DF2C11CDD036E0085CB22 /* ScoreView.swift */,
 				7543C9631CDD27C700E0E180 /* GameStatusView.xib */,
 				7543C9651CDD290500E0E180 /* GameStatusView.swift */,
@@ -143,13 +158,13 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
-		750DF2C61CDD08770085CB22 /* Points Animation */ = {
+		750DF2C61CDD08770085CB22 /* Effects */ = {
 			isa = PBXGroup;
 			children = (
 				750DF2C71CDD088D0085CB22 /* AnimationWindow.swift */,
 				750DF2C91CDD08B60085CB22 /* PointsParticleAnimation.swift */,
 			);
-			name = "Points Animation";
+			name = Effects;
 			sourceTree = "<group>";
 		};
 		750DF2CB1CDD0E6A0085CB22 /* Services */ = {
@@ -191,6 +206,35 @@
 			name = "Menu View Controllers";
 			sourceTree = "<group>";
 		};
+		7543C96B1CDD537700E0E180 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				7543C9771CDD53A900E0E180 /* Chirp.swift */,
+				7543C96C1CDD538100E0E180 /* Assets */,
+			);
+			name = Sound;
+			sourceTree = "<group>";
+		};
+		7543C96C1CDD538100E0E180 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				7543C96D1CDD539400E0E180 /* chime_done.wav */,
+				7543C96E1CDD539400E0E180 /* chime_game_over.wav */,
+				7543C96F1CDD539400E0E180 /* chime_pause.wav */,
+				7543C9701CDD539400E0E180 /* chime_point.wav */,
+				7543C9711CDD539400E0E180 /* chime_start.wav */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		7543C9791CDD669E00E0E180 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				7543C97A1CDD66AE00E0E180 /* TaskCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		756085431CDC36C1000B4199 = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +257,7 @@
 		7560854E1CDC36C1000B4199 /* todoappgame */ = {
 			isa = PBXGroup;
 			children = (
+				7543C96B1CDD537700E0E180 /* Sound */,
 				750DF2CB1CDD0E6A0085CB22 /* Services */,
 				750DF2C51CDD04230085CB22 /* Controllers */,
 				750DF2C01CDD035D0085CB22 /* Views */,
@@ -262,6 +307,7 @@
 				TargetAttributes = {
 					7560854B1CDC36C1000B4199 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 334Q375TSA;
 					};
 				};
 			};
@@ -291,9 +337,14 @@
 				7543C96A1CDD3B8900E0E180 /* todos in Resources */,
 				7543C9641CDD27C700E0E180 /* GameStatusView.xib in Resources */,
 				7560855F1CDC36C2000B4199 /* LaunchScreen.storyboard in Resources */,
+				7543C9751CDD539400E0E180 /* chime_point.wav in Resources */,
 				7560855C1CDC36C2000B4199 /* Assets.xcassets in Resources */,
+				7543C9731CDD539400E0E180 /* chime_game_over.wav in Resources */,
+				7543C9761CDD539400E0E180 /* chime_start.wav in Resources */,
 				750DF2BB1CDCEA7E0085CB22 /* data.yml in Resources */,
+				7543C9721CDD539400E0E180 /* chime_done.wav in Resources */,
 				750DF2BD1CDCEBE40085CB22 /* data.json in Resources */,
+				7543C9741CDD539400E0E180 /* chime_pause.wav in Resources */,
 				7560855A1CDC36C2000B4199 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -357,6 +408,7 @@
 				7543C9381CDD172000E0E180 /* StoryboardReference.swift in Sources */,
 				750DF2C41CDD04170085CB22 /* MainNavigationController.swift in Sources */,
 				756085501CDC36C1000B4199 /* AppDelegate.swift in Sources */,
+				7543C9781CDD53A900E0E180 /* Chirp.swift in Sources */,
 				750DF2C21CDD036E0085CB22 /* ScoreView.swift in Sources */,
 				7543C93C1CDD1A1C00E0E180 /* GameOverViewController.swift in Sources */,
 				756085531CDC36C1000B4199 /* todoappgame.xcdatamodeld in Sources */,
@@ -371,6 +423,7 @@
 				7543C92D1CDD139800E0E180 /* BorderedButton.swift in Sources */,
 				7543C9341CDD152300E0E180 /* PartialModalPresentationController.swift in Sources */,
 				750DF2B71CDCE53C0085CB22 /* Task+CoreDataProperties.swift in Sources */,
+				7543C97B1CDD66AE00E0E180 /* TaskCell.swift in Sources */,
 				7543C93A1CDD19F600E0E180 /* PauseViewController.swift in Sources */,
 				750DF2B81CDCE53C0085CB22 /* Task.swift in Sources */,
 				750DF2CD1CDD0E7D0085CB22 /* Notifications.swift in Sources */,
@@ -489,11 +542,13 @@
 			baseConfigurationReference = 6377B922A9F5B4B18F70B49D /* Pods-todoappgame.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = todoappgame/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ca.bitwit.todoappgame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "fbf470c9-f399-4179-8553-a267c2a1b919";
 			};
 			name = Debug;
 		};
@@ -502,11 +557,13 @@
 			baseConfigurationReference = F0466DA7D813C19DC4CD9CE5 /* Pods-todoappgame.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Kyle Newsome (334Q375TSA)";
 				INFOPLIST_FILE = todoappgame/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ca.bitwit.todoappgame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "c9c36c28-f07a-4667-9762-08cda494d8b9";
 			};
 			name = Release;
 		};
