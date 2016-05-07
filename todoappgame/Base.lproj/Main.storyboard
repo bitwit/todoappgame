@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Main Navigation Controller-->
@@ -124,13 +125,108 @@
                             <outlet property="delegate" destination="7bK-jq-Zjz" id="RA6-mI-bju"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Master" id="Zdf-7t-Un8"/>
+                    <navigationItem key="navigationItem" title="Tasks" id="Zdf-7t-Un8"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="600"/>
+                    <connections>
+                        <segue destination="p8A-UF-23L" kind="show" identifier="showDetail" id="CmE-WP-VBq"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="342" y="-630"/>
+            <point key="canvasLocation" x="318" y="-630"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="6W0-so-Z1t">
+            <objects>
+                <tableViewController id="p8A-UF-23L" customClass="DetailViewController" customModule="todoappgame" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="rlJ-h0-2VN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SubtaskCell" rowHeight="60" id="P6e-ux-eiw" customClass="SubtaskCell" customModule="todoappgame" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="320" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="P6e-ux-eiw" id="Z8E-II-nPH">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkbox-empty" translatesAutoresizingMaskIntoConstraints="NO" id="Uw4-ca-1H2">
+                                            <rect key="frame" x="8" y="7" width="44" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="44" id="Zkh-lq-CJ4"/>
+                                                <constraint firstAttribute="width" constant="44" id="p3U-Ib-Ovd"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do some sort of thing" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tGB-6M-A0S">
+                                            <rect key="frame" x="60" y="8" width="252" height="43"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="43" id="MuP-K3-6FY"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="tGB-6M-A0S" firstAttribute="centerY" secondItem="Z8E-II-nPH" secondAttribute="centerY" id="DJs-Kd-1Aj"/>
+                                        <constraint firstItem="Uw4-ca-1H2" firstAttribute="centerY" secondItem="Z8E-II-nPH" secondAttribute="centerY" id="KpA-Fd-rVp"/>
+                                        <constraint firstAttribute="trailing" secondItem="tGB-6M-A0S" secondAttribute="trailing" constant="8" id="UVi-b5-e7b"/>
+                                        <constraint firstItem="Uw4-ca-1H2" firstAttribute="leading" secondItem="Z8E-II-nPH" secondAttribute="leading" constant="8" id="hQc-bp-UVf"/>
+                                        <constraint firstItem="tGB-6M-A0S" firstAttribute="leading" secondItem="Uw4-ca-1H2" secondAttribute="trailing" constant="8" id="khZ-8A-ta2"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="checkboxImageView" destination="Uw4-ca-1H2" id="fhr-3j-C7H"/>
+                                    <outlet property="titleLabel" destination="tGB-6M-A0S" id="1lg-7y-q4m"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SaveCell" rowHeight="240" id="TwL-am-Sq9" customClass="SaveCell" customModule="todoappgame" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="152" width="320" height="240"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TwL-am-Sq9" id="JP9-wn-NEq">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="239"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="chO-RY-7qT">
+                                            <rect key="frame" x="70" y="19" width="180" height="44"/>
+                                            <color key="backgroundColor" red="0.62745098040000002" green="0.62745098040000002" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="180" id="7Ai-wq-2vB"/>
+                                                <constraint firstAttribute="height" constant="44" id="GFG-0P-iyQ"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                            <state key="normal" title="Save">
+                                                <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="save" destination="p8A-UF-23L" eventType="touchUpInside" id="LQN-Pt-HSd"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="chO-RY-7qT" firstAttribute="centerX" secondItem="JP9-wn-NEq" secondAttribute="centerX" id="U2j-8u-qCI"/>
+                                        <constraint firstItem="chO-RY-7qT" firstAttribute="top" secondItem="JP9-wn-NEq" secondAttribute="topMargin" constant="11" id="tIw-sJ-Onn"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="saveButton" destination="chO-RY-7qT" id="ISu-oY-HK1"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="p8A-UF-23L" id="rs8-bF-z9T"/>
+                            <outlet property="delegate" destination="p8A-UF-23L" id="vH7-aQ-w4M"/>
+                        </connections>
+                    </tableView>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="480"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bPh-Qf-xhe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="729" y="-630"/>
         </scene>
         <!--Pause-->
         <scene sceneID="Dxu-vc-lu3">
@@ -268,4 +364,7 @@
             <point key="canvasLocation" x="709" y="89"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="checkbox-empty" width="44" height="44"/>
+    </resources>
 </document>

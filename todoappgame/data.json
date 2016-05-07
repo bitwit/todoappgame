@@ -1,218 +1,412 @@
 [
   {
-    "Grow a 3ft beard": 3
+    "Grow a 3ft beard": {
+      "points": 9,
+      "subtasks": [
+        "Grow 1ft",
+        "Grow 2ft",
+        "Grow 3ft"
+      ]
+    }
   },
   {
-    "Visit the moon": 3
+    "Visit the moon": {
+      "points": 12,
+      "subtasks": [
+        "Build rocket",
+        "Blast Off",
+        "Land on Moon",
+        "Take selfie (#latergram)"
+      ]
+    }
   },
   {
-    "Befriend a monkey": 3
+    "Befriend a monkey": {
+      "points": 3
+    }
   },
   {
-    "Ride a hippo": 3
+    "Ride a hippo": {
+      "points": 3
+    }
   },
   {
-    "Climb Everest... naked": 3
+    "Climb Everest": {
+      "points": 3
+    }
   },
   {
-    "Karate chop a laptop": 3
+    "Karate chop a laptop": {
+      "points": 3
+    }
   },
   {
-    "Start a new nation": 3
+    "Start a new nation": {
+      "points": 3
+    }
   },
   {
-    "Eliminate personal dependence on fossil fuels": 3
+    "Eliminate personal dependence on fossil fuels": {
+      "points": 3
+    }
   },
   {
-    "Surf a Tsunami": 3
+    "Surf a Tsunami": {
+      "points": 3
+    }
   },
   {
-    "Handglide during a Hurricane": 3
+    "Handglide during a Hurricane": {
+      "points": 3
+    }
   },
   {
-    "Vault over a Volcano": 3
+    "Vault over a Volcano": {
+      "points": 3
+    }
   },
   {
-    "Wear 3 pairs of pants": 2
+    "Wear 3 pairs of pants": {
+      "points": 2
+    }
   },
   {
-    "Learn 4 spoken languages": 2
+    "Learn 4 spoken languages": {
+      "points": 12,
+      "subtasks": [
+        "Language 1",
+        "Language 2",
+        "Language 3",
+        "Language 4"
+      ]
+    }
   },
   {
-    "Get knighted by the Queen": 2
+    "Get knighted by the Queen": {
+      "points": 2
+    }
   },
   {
-    "Become President of the USA": 2
+    "Become President of the USA": {
+      "points": 2
+    }
   },
   {
-    "Make a video game in assembly code": 2
+    "Make a video game in assembly code": {
+      "points": 2
+    }
   },
   {
-    "Build & program Skynet": 2
+    "Build and program Skynet": {
+      "points": 2
+    }
   },
   {
-    "Go back to the future": 2
+    "Go back to the future": {
+      "points": 2
+    }
   },
   {
-    "Get lost in space": 2
+    "Get lost in space": {
+      "points": 2
+    }
   },
   {
-    "Partake in a Star War": 2
+    "Partake in a Star War": {
+      "points": 2
+    }
   },
   {
-    "Wear an oversized feathery hat": 2
+    "Wear an oversized feathery hat": {
+      "points": 2
+    }
   },
   {
-    "Disprove gravity": 2
+    "Disprove gravity": {
+      "points": 2
+    }
   },
   {
-    "EGOT": 4
+    "EGOT": {
+      "points": 12,
+      "subtasks": [
+        "Emmy",
+        "Grammy",
+        "Oscar",
+        "Tony"
+      ]
+    }
   },
   {
-    "Protect Hell's Kitchen": 4
+    "Protect Hell's Kitchen": {
+      "points": 4
+    }
   },
   {
-    "Gain superpower from a thunderstorm": 4
+    "Gain superpower from a thunderstorm": {
+      "points": 4
+    }
   },
   {
-    "Purchase sunglasses that expose consumerist aliens": 4
+    "Purchase sunglasses that expose consumerist aliens": {
+      "points": 4
+    }
   },
   {
-    "Become a rock and roll legend": 4
+    "Become a rock and roll legend": {
+      "points": 4
+    }
   },
   {
-    "Help horse do a keg stand": 4
+    "Help horse do a keg stand": {
+      "points": 4
+    }
   },
   {
-    "Fart the alphabet": 4
+    "Fart the alphabet": {
+      "points": 12,
+      "subtasks": [
+        "Fart letters A - I",
+        "Fart letters J - R",
+        "Fart letters S - Z"
+      ]
+    }
   },
   {
-    "Shampoo a Kangaroo": 4
+    "Shampoo a Kangaroo": {
+      "points": 4
+    }
   },
   {
-    "Teach a monkey sign language": 4
+    "Teach a monkey sign language": {
+      "points": 4
+    }
   },
   {
-    "Write a 6 part mini series for TV": 4
+    "Write a 6 part mini series for TV": {
+      "points": 18,
+      "subtasks": [
+        "Part 1",
+        "Part 2",
+        "Part 3",
+        "Part 4",
+        "Part 5",
+        "Part 6"
+      ]
+    }
   },
   {
-    "Fight crime while in a costume": 4
+    "Fight crime while in a costume": {
+      "points": 1
+    }
   },
   {
-    "Befriend an android butler": 1
+    "Befriend an android butler": {
+      "points": 1
+    }
   },
   {
-    "Reach a state of total enlightenment": 1
+    "Reach a state of total enlightenment": {
+      "points": 1
+    }
   },
   {
-    "Catch an underpants gnome": 1
+    "Catch an underpants gnome": {
+      "points": 1
+    }
   },
   {
-    "Turn a company in a dying industry around": 1
+    "Turn a company in a dying industry around": {
+      "points": 1
+    }
   },
   {
-    "Grow a third eye": 1
+    "Grow a third eye": {
+      "points": 1
+    }
   },
   {
-    "Grow an apple tree and make pie": 1
+    "Grow an apple tree and make pie": {
+      "points": 1
+    }
   },
   {
-    "Pivot": 1
+    "Go agile": {
+      "points": 1
+    }
   },
   {
-    "Go agile": 1
+    "Start a startup and fail then succeed": {
+      "points": 1
+    }
   },
   {
-    "Start a startup and fail then succeed": 1
+    "Develop a brand line of perfumes": {
+      "points": 1
+    }
   },
   {
-    "Develop a brand line of perfumes": 1
+    "Invent a smell": {
+      "points": 1
+    }
   },
   {
-    "Invent a smell": 1
+    "Taste a color": {
+      "points": 1
+    }
   },
   {
-    "Taste a color": 1
+    "Swim with the salmon": {
+      "points": 1
+    }
   },
   {
-    "Swim with the salmon": 1
+    "Open a Mom & Pop gun shop": {
+      "points": 1
+    }
   },
   {
-    "Open a Mom & Pop gun shop": 1
+    "Deliver a keynote speech in place of Tim Cook": {
+      "points": 2
+    }
   },
   {
-    "Deliver a keynote speech in place of Tim Cook": 2
+    "Swim across the Atlantic": {
+      "points": 2
+    }
   },
   {
-    "Swim across the Atlantic": 2
+    "Levitate": {
+      "points": 2
+    }
   },
   {
-    "Levitate": 2
+    "Mind control a squirrel into mischief": {
+      "points": 9,
+      "subtasks": [
+        "Mind control squirrel",
+        "Ruin child's birthday party"
+      ]
+    }
   },
   {
-    "Mind control a squirrel into mischief": 2
+    "Host the Oscars": {
+      "points": 2
+    }
   },
   {
-    "Host the Oscars": 2
+    "Switch spots with mirror self": {
+      "points": 2
+    }
   },
   {
-    "Switch spots with mirror self": 2
+    "Sing Chocolate Rain in an Opera Theatre": {
+      "points": 4
+    }
   },
   {
-    "Sing Chocolate Rain in an Opera Theatre": 4
+    "Open Pandora's box": {
+      "points": 4
+    }
   },
   {
-    "Open Pandora's box": 4
+    "Ride a hoverboard while wielding a lightsaber to fight off orcs": {
+      "points": 4
+    }
   },
   {
-    "Ride a hoverboard while wielding a lightsaber to fight off orcs": 4
+    "Eat a star": {
+      "points": 4
+    }
   },
   {
-    "Eat a star": 4
+    "Create a new genre of music": {
+      "points": 1
+    }
   },
   {
-    "Create a new genre of music": 1
+    "Star in a performance of CATS On Ice": {
+      "points": 1
+    }
   },
   {
-    "Star in a performance of CATS On Ice": 1
+    "Sing for Kim Jong Un": {
+      "points": 1,
+      "subtasks": [
+        "Visit North Korea",
+        "Sing for Kim Jong Un",
+        "Mend international relations"
+      ]
+    }
   },
   {
-    "Sing for Kim Jong Un to mend international relations": 1
+    "Grow a redwood tree in backyard": {
+      "points": 1
+    }
   },
   {
-    "Grow a redwood tree in backyard": 1
+    "Adopt a laser cat": {
+      "points": 1
+    }
   },
   {
-    "Adopt a laser cat": 1
+    "Go viral": {
+      "points": 1
+    }
   },
   {
-    "Go viral": 1
+    "Jump back and forth in time after reading from a diary": {
+      "points": 12,
+      "subtasks": [
+        "Visit the past",
+        "Change something",
+        "Return to future",
+        "Realize huge mistake"
+      ]
+    }
   },
   {
-    "Jump back and forth in time after reading from a diary": 1
+    "Go through a wormhole": {
+      "points": 1
+    }
   },
   {
-    "Go through a wormhole": 1
+    "Play bassoon for a raccoon": {
+      "points": 1
+    }
   },
   {
-    "Play bassoon for a raccoon": 1
+    "Overcome a zombie virus infection": {
+      "points": 1
+    }
   },
   {
-    "Overcome a zombie virus infection": 1
+    "Donate hair to Donald Trump": {
+      "points": 1
+    }
   },
   {
-    "Donate hair to Donald Trump": 1
+    "Enter a friend's dream within a dream": {
+      "points": 6,
+      "subtasks": [
+        "Enter dream",
+        "Enter dream within that dream"
+      ]
+    }
   },
   {
-    "Enter a friend's dream within a dream": 1
+    "Make this game": {
+      "points": 1
+    }
   },
   {
-    "Make this game": 1
+    "Lick your elbow": {
+      "points": 1
+    }
   },
   {
-    "Lick your elbow": 1
-  },
-  {
-    "Kiss the Queen and use tongue": 1
+    "Kiss the Queen and use tongue": {
+      "points": 1
+    }
   }
 ]

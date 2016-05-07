@@ -12,6 +12,12 @@ class GameStatusView: UIView {
         Notifications.observe(self, selector: #selector(onTick), type: .Tick)
     }
     
+    func prepare() {
+    
+        let newProgress = Float(Game.time / Game.maxTime)
+        progressView.setProgress(newProgress, animated: false)
+    }
+    
     func onReset() {
         progressView.setProgress(0, animated: true)
     }

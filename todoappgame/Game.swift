@@ -10,8 +10,8 @@ struct Game {
     
     static let state:State = .StartMenu
     
-    static let timerInterval: Double = 0.85
-    static let maxTime: Double = 30.0
+    static let timerInterval: Double = 2
+    static let maxTime: Double = 20.0
     static let multiplierCooldownTime: Double = 1.0
     
     static var time: Double = 0

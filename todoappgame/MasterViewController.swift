@@ -6,15 +6,13 @@ import BWSwipeRevealCell
 class MasterViewController: UITableViewController {
     
     private var isFirstAppearance = true
-    private var gameStatusView:GameStatusView?
     
     // Data
     var managedObjectContext: NSManagedObjectContext? = nil
-    var allTasks: Array<[String:Int]>
-    var possibleTasks: Array<[String:Int]> = []
+    var allTasks: Array<[String:AnyObject]>
+    var possibleTasks: Array<[String:AnyObject]> = []
     
     // Timer
-    var shouldAddTasks = true
     var gameTimer: NSTimer?
     
     required init?(coder aDecoder: NSCoder) {
@@ -24,7 +22,9 @@ class MasterViewController: UITableViewController {
         let data:NSData? = fileManager.contentsAtPath(path)
         let jsonData = try! NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)
         
-        allTasks = (jsonData as! Array<[String:Int]>)
+        allTasks = (jsonData as! Array<[String:AnyObject]>)
+        
+        print("TOTAL TASKS:", allTasks.count)
         
         super.init(coder:aDecoder)
         
@@ -57,12 +57,10 @@ class MasterViewController: UITableViewController {
         let nib = NSBundle.mainBundle().loadNibNamed("GameStatusView", owner: nil, options: nil)
         for object in nib {
             if let o = object as? GameStatusView {
-                gameStatusView = o
+                navigationItem.titleView = o
                 break
             }
         }
-        
-        navigationItem.titleView = gameStatusView
     }
     
     
@@ -95,6 +93,7 @@ class MasterViewController: UITableViewController {
         
             Game.start()
             self.insertNewObject(5)
+            self.navigationController?.popToRootViewControllerAnimated(true)
         }
     }
     
@@ -130,25 +129,20 @@ class MasterViewController: UITableViewController {
     
     // MARK: - Segues
     
-    //    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    //        if segue.identifier == "showDetail" {
-    //            if let indexPath = self.tableView.indexPathForSelectedRow {
-    //            let object = self.fetchedResultsController.objectAtIndexPath(indexPath)
-    //                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
-    //                controller.detailItem = object
-    //                controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
-    //                controller.navigationItem.leftItemsSupplementBackButton = true
-    //            }
-    //        }
-    //    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showDetail" {
+            if let taskCell = sender as? TaskCell, let indexPath = tableView.indexPathForCell(taskCell) {
+                let task = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Task
+                let controller = segue.destinationViewController as! DetailViewController
+                controller.detailItem = task
+            }
+        }
+    }
     
     func insertNewObject(numberOfTasks:Int = 1) {
         
-        guard shouldAddTasks else {
-            return
-        }
-        
         (0 ..< numberOfTasks).forEach { _ in
+            
             guard let taskData = possibleTasks.popLast() else {
                 return
             }
@@ -157,12 +151,11 @@ class MasterViewController: UITableViewController {
             let entity = self.fetchedResultsController.fetchRequest.entity!
             let task:Task = NSEntityDescription.insertNewObjectForEntityForName(entity.name!, inManagedObjectContext: context) as! Task
             
-            taskData.forEach { (title, points) in
+            taskData.forEach { (title, data) in
                 task.timeStamp = NSDate()
                 task.title = title
-                task.points = points
+                task.loadData(data)
             }
-            
         }
         
     }
@@ -203,11 +196,18 @@ class MasterViewController: UITableViewController {
         c.bgViewRightImage = UIImage(named:"icon-cog")!
         c.bgViewRightColor = UIColor.blueColor()
         c.type = .SpringRelease
-        c.revealDirection = .Both
         c.delegate = self
         
         c.titleLabel.text = task.title
         c.pointsLabel.text = task.points!.stringValue
+        
+        if task.isReadyForCompletion?.boolValue == true {
+            c.revealDirection = .Left
+            c.contentView.backgroundColor = UIColor.whiteColor()
+        } else {
+            c.revealDirection = .Right
+            c.contentView.backgroundColor = UIColor.yellowColor()
+        }
     }
     
     
@@ -278,7 +278,9 @@ extension MasterViewController: NSFetchedResultsControllerDelegate {
         case .Delete:
             tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Left)
         case .Update:
-            self.configureCell(tableView.cellForRowAtIndexPath(indexPath!) as! BWSwipeRevealCell, withObject: anObject as! Task)
+            let cell = tableView.cellForRowAtIndexPath(indexPath!) as! BWSwipeRevealCell
+            let task = anObject as! Task
+            self.configureCell(cell, withObject: task)
         case .Move:
             tableView.moveRowAtIndexPath(indexPath!, toIndexPath: newIndexPath!)
         }
@@ -292,14 +294,7 @@ extension MasterViewController: NSFetchedResultsControllerDelegate {
 
 extension MasterViewController: BWSwipeRevealCellDelegate {
     
-    func swipeCellDidStartSwiping(cell: BWSwipeCell) {
-        
-        shouldAddTasks = false
-    }
-    
     func swipeCellDidCompleteRelease(cell: BWSwipeCell) {
-        
-        shouldAddTasks = true
         
         guard let taskCell = cell as? TaskCell
             where taskCell.state != .Normal
@@ -308,7 +303,7 @@ extension MasterViewController: BWSwipeRevealCellDelegate {
         }
         
         switch cell.state {
-        case .PastThresholdLeft, .PastThresholdRight:
+        case .PastThresholdLeft:
             
             guard let idx = tableView.indexPathForCell(cell),
                 let task = fetchedResultsController.fetchedObjects![idx.row] as? Task
@@ -339,6 +334,10 @@ extension MasterViewController: BWSwipeRevealCellDelegate {
                 taskCell.pointsLabel.alpha = 0
                 taskCell.pointsLabel.transform = CGAffineTransformMakeScale(2.0, 2.0)
             }
+            
+        case .PastThresholdRight:
+            
+            performSegueWithIdentifier("showDetail", sender: cell)
             
         default: break
         }

@@ -30,9 +30,6 @@ public class Chirp {
     // MARK: - Public
     public func prepareSound(fileName: String) -> SystemSoundID? {
         let fixedSoundFileName = self.fixedSoundFileName(fileName)
-        if let soundID = soundIDForKey(fixedSoundFileName) {
-            return soundID
-        }
         
         if let pathURL = pathURLForSound(fixedSoundFileName) {
             var soundID: SystemSoundID = 0
@@ -55,18 +52,15 @@ public class Chirp {
         }
     }
     
-    public func removeSound(fileName: String) {
-        let fixedSoundFileName = self.fixedSoundFileName(fileName)
-        if let soundID = soundIDForKey(fixedSoundFileName) {
-            AudioServicesDisposeSystemSoundID(soundID)
-            soundIDs.removeValueForKey(fixedSoundFileName)
-        }
-    }
+//    public func removeSound(fileName: String) {
+//        let fixedSoundFileName = self.fixedSoundFileName(fileName)
+//        if let soundID = soundIDForKey(fixedSoundFileName) {
+//            AudioServicesDisposeSystemSoundID(soundID)
+//            soundIDs.removeValueForKey(fixedSoundFileName)
+//        }
+//    }
     
     // MARK: - Private
-    private func soundIDForKey(key: String) -> SystemSoundID? {
-        return nil // soundIDs[key]
-    }
     
     private func fixedSoundFileName(fileName: String) -> String {
         var fixedSoundFileName = fileName.stringByTrimmingCharactersInSet(.whitespaceAndNewlineCharacterSet())

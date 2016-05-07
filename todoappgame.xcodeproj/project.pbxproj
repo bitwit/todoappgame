@@ -18,6 +18,8 @@
 		750DF2C81CDD088D0085CB22 /* AnimationWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750DF2C71CDD088D0085CB22 /* AnimationWindow.swift */; };
 		750DF2CA1CDD08B60085CB22 /* PointsParticleAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750DF2C91CDD08B60085CB22 /* PointsParticleAnimation.swift */; };
 		750DF2CD1CDD0E7D0085CB22 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750DF2CC1CDD0E7D0085CB22 /* Notifications.swift */; };
+		7529C1451CDE3E4B00EC2E5F /* SubtaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7529C1441CDE3E4B00EC2E5F /* SubtaskCell.swift */; };
+		7529C1471CDE3E6100EC2E5F /* SaveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7529C1461CDE3E6100EC2E5F /* SaveCell.swift */; };
 		7543C92D1CDD139800E0E180 /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543C92C1CDD139800E0E180 /* BorderedButton.swift */; };
 		7543C92F1CDD141A00E0E180 /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543C92E1CDD141A00E0E180 /* IntroductionViewController.swift */; };
 		7543C9341CDD152300E0E180 /* PartialModalPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543C9311CDD152300E0E180 /* PartialModalPresentationController.swift */; };
@@ -30,7 +32,6 @@
 		7543C9641CDD27C700E0E180 /* GameStatusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7543C9631CDD27C700E0E180 /* GameStatusView.xib */; };
 		7543C9661CDD290500E0E180 /* GameStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543C9651CDD290500E0E180 /* GameStatusView.swift */; };
 		7543C9681CDD29D600E0E180 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543C9671CDD29D600E0E180 /* Game.swift */; };
-		7543C96A1CDD3B8900E0E180 /* todos in Resources */ = {isa = PBXBuildFile; fileRef = 7543C9691CDD3B8900E0E180 /* todos */; };
 		7543C9721CDD539400E0E180 /* chime_done.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7543C96D1CDD539400E0E180 /* chime_done.wav */; };
 		7543C9731CDD539400E0E180 /* chime_game_over.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7543C96E1CDD539400E0E180 /* chime_game_over.wav */; };
 		7543C9741CDD539400E0E180 /* chime_pause.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7543C96F1CDD539400E0E180 /* chime_pause.wav */; };
@@ -61,6 +62,8 @@
 		750DF2C71CDD088D0085CB22 /* AnimationWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationWindow.swift; sourceTree = "<group>"; };
 		750DF2C91CDD08B60085CB22 /* PointsParticleAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointsParticleAnimation.swift; sourceTree = "<group>"; };
 		750DF2CC1CDD0E7D0085CB22 /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		7529C1441CDE3E4B00EC2E5F /* SubtaskCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtaskCell.swift; sourceTree = "<group>"; };
+		7529C1461CDE3E6100EC2E5F /* SaveCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveCell.swift; sourceTree = "<group>"; };
 		7543C92C1CDD139800E0E180 /* BorderedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
 		7543C92E1CDD141A00E0E180 /* IntroductionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionViewController.swift; sourceTree = "<group>"; };
 		7543C9311CDD152300E0E180 /* PartialModalPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartialModalPresentationController.swift; sourceTree = "<group>"; };
@@ -73,7 +76,6 @@
 		7543C9631CDD27C700E0E180 /* GameStatusView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameStatusView.xib; sourceTree = "<group>"; };
 		7543C9651CDD290500E0E180 /* GameStatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameStatusView.swift; sourceTree = "<group>"; };
 		7543C9671CDD29D600E0E180 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
-		7543C9691CDD3B8900E0E180 /* todos */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = todos; sourceTree = "<group>"; };
 		7543C96D1CDD539400E0E180 /* chime_done.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = chime_done.wav; sourceTree = "<group>"; };
 		7543C96E1CDD539400E0E180 /* chime_game_over.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = chime_game_over.wav; sourceTree = "<group>"; };
 		7543C96F1CDD539400E0E180 /* chime_pause.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = chime_pause.wav; sourceTree = "<group>"; };
@@ -152,8 +154,8 @@
 			children = (
 				7543C93D1CDD1B1600E0E180 /* Menu View Controllers */,
 				7543C9301CDD14F400E0E180 /* Partial Modal */,
-				756085541CDC36C2000B4199 /* MasterViewController.swift */,
 				750DF2C31CDD04170085CB22 /* MainNavigationController.swift */,
+				756085541CDC36C2000B4199 /* MasterViewController.swift */,
 				756085561CDC36C2000B4199 /* DetailViewController.swift */,
 			);
 			name = Controllers;
@@ -234,6 +236,8 @@
 			isa = PBXGroup;
 			children = (
 				7543C97A1CDD66AE00E0E180 /* TaskCell.swift */,
+				7529C1441CDE3E4B00EC2E5F /* SubtaskCell.swift */,
+				7529C1461CDE3E6100EC2E5F /* SaveCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -241,7 +245,6 @@
 		756085431CDC36C1000B4199 = {
 			isa = PBXGroup;
 			children = (
-				7543C9691CDD3B8900E0E180 /* todos */,
 				7560854E1CDC36C1000B4199 /* todoappgame */,
 				7560854D1CDC36C1000B4199 /* Products */,
 				21EDCEF8C44A3D60CED52647 /* Pods */,
@@ -337,7 +340,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7543C96A1CDD3B8900E0E180 /* todos in Resources */,
 				7543C9641CDD27C700E0E180 /* GameStatusView.xib in Resources */,
 				7560855F1CDC36C2000B4199 /* LaunchScreen.storyboard in Resources */,
 				7543C9751CDD539400E0E180 /* chime_point.wav in Resources */,
@@ -411,6 +413,7 @@
 				7543C9381CDD172000E0E180 /* StoryboardReference.swift in Sources */,
 				750DF2C41CDD04170085CB22 /* MainNavigationController.swift in Sources */,
 				756085501CDC36C1000B4199 /* AppDelegate.swift in Sources */,
+				7529C1471CDE3E6100EC2E5F /* SaveCell.swift in Sources */,
 				7543C9781CDD53A900E0E180 /* Chirp.swift in Sources */,
 				750DF2C21CDD036E0085CB22 /* ScoreView.swift in Sources */,
 				7543C93C1CDD1A1C00E0E180 /* GameOverViewController.swift in Sources */,
@@ -430,6 +433,7 @@
 				7543C97B1CDD66AE00E0E180 /* TaskCell.swift in Sources */,
 				7543C93A1CDD19F600E0E180 /* PauseViewController.swift in Sources */,
 				750DF2B81CDCE53C0085CB22 /* Task.swift in Sources */,
+				7529C1451CDE3E4B00EC2E5F /* SubtaskCell.swift in Sources */,
 				750DF2CD1CDD0E7D0085CB22 /* Notifications.swift in Sources */,
 				756085571CDC36C2000B4199 /* DetailViewController.swift in Sources */,
 				7543C9681CDD29D600E0E180 /* Game.swift in Sources */,
