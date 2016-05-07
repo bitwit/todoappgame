@@ -12,25 +12,25 @@
                 - Land on Moon
                 - "Take selfie (#latergram)"
 - Befriend a monkey:
-        points: 3
+        points: 1
 - Ride a hippo:
-        points: 3
+        points: 1
 - Climb Everest:
-        points: 3
+        points: 1
 - Karate chop a laptop:
-        points: 3
+        points: 1
 - Start a new nation:
-        points: 3
+        points: 1
 - Eliminate personal dependence on fossil fuels:
-        points: 3
+        points: 1
 - Surf a Tsunami:
-        points: 3
+        points: 1
 - Handglide during a Hurricane:
-        points: 3
+        points: 1
 - Vault over a Volcano:
-        points: 3
+        points: 1
 - Wear 3 pairs of pants:
-        points: 2
+        points: 1
 - Learn 4 spoken languages:
         points: 12
         subtasks:
@@ -39,23 +39,23 @@
                 - Language 3
                 - Language 4
 - Get knighted by the Queen:
-        points: 2
+        points: 1
 - Become President of the USA:
-        points: 2
+        points: 1
 - Make a video game in assembly code:
-        points: 2
+        points: 1
 - Build and program Skynet:
-        points: 2
+        points: 1
 - Go back to the future:
-        points: 2
+        points: 1
 - Get lost in space:
-        points: 2
+        points: 1
 - Partake in a Star War:
-        points: 2
+        points: 1
 - Wear an oversized feathery hat:
-        points: 2
+        points: 1
 - Disprove gravity:
-        points: 2
+        points: 1
 - EGOT:
         points: 12
         subtasks:
@@ -63,35 +63,33 @@
                 - Grammy
                 - Oscar
                 - Tony
-- Protect Hell's Kitchen:
-        points: 4
+- "Protect Hell's Kitchen":
+        points: 1
 - Gain superpower from a thunderstorm:
-        points: 4
+        points: 1
 - Purchase sunglasses that expose consumerist aliens:
-        points: 4
+        points: 1
 - Become a rock and roll legend:
-        points: 4
+        points: 1
 - Help horse do a keg stand:
-        points: 4
+        points: 1
 - Fart the alphabet:
-        points: 12
+        points: 9
         subtasks:
                 - Fart letters A - I
                 - Fart letters J - R
                 - Fart letters S - Z
 - Shampoo a Kangaroo:
-        points: 4
+        points: 1
 - Teach a monkey sign language:
-        points: 4
-- Write a 6 part mini series for TV:
-        points: 18
+        points: 1
+- Write a 4 part mini series for TV:
+        points: 12
         subtasks:
-                - Part 1
-                - Part 2
-                - Part 3
-                - Part 4
-                - Part 5
-                - Part 6
+                - "Part 1: Murder at the Mayor's Office"
+                - "Part 2: Recipe for murder"
+                - "Part 3: An unexpected murder"
+                - "Part 4: Epilogue -- Murder"
 - Fight crime while in a costume:
         points: 1
 - Befriend an android butler:
@@ -118,37 +116,37 @@
         points: 1
 - Swim with the salmon:
         points: 1
-- Open a Mom & Pop gun shop:
+- "Open a Mom & Pop gun shop":
         points: 1
 - Deliver a keynote speech in place of Tim Cook:
-        points: 2
+        points: 1
 - Swim across the Atlantic:
-        points: 2
+        points: 1
 - Levitate:
-        points: 2
+        points: 1
 - Mind control a squirrel into mischief:
-        points: 9
+        points: 6
         subtasks:
-                - Mind control squirrel
-                - Ruin child's birthday party
+                - "Mind control squirrel"
+                - "Ruin child's birthday party"
 - Host the Oscars:
-        points: 2
+        points: 1
 - Switch spots with mirror self:
-        points: 2
+        points: 1
 - Sing Chocolate Rain in an Opera Theatre:
-        points: 4
-- Open Pandora's box:
-        points: 4
+        points: 1
+- "Open Pandora's box":
+        points: 1
 - Ride a hoverboard while wielding a lightsaber to fight off orcs:
-        points: 4
+        points: 1
 - Eat a star:
-        points: 4
+        points: 1
 - Create a new genre of music:
         points: 1
 - Star in a performance of CATS On Ice:
         points: 1
 - Sing for Kim Jong Un:
-        points: 1
+        points: 9
         subtasks:
                 - Visit North Korea
                 - Sing for Kim Jong Un
@@ -174,7 +172,7 @@
         points: 1
 - Donate hair to Donald Trump:
         points: 1
-- Enter a friend's dream within a dream:
+- "Enter a friend's dream within a dream":
         points: 6
         subtasks:
                 - Enter dream

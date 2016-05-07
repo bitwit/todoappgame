@@ -25,10 +25,10 @@ class SaveCell: UITableViewCell {
         
         saveButton.enabled = true
         saveButton.userInteractionEnabled = false
-        saveButton.backgroundColor = UIColor.greenColor()
+        saveButton.backgroundColor = Colors.scheme.success
         
         // Start moving the button once we are 35% into the game
-        if Game.time / Game.maxTime > 0.35 {
+        if Game.stage >= 2 {
             animateButton()
         }
     }
@@ -39,17 +39,15 @@ class SaveCell: UITableViewCell {
     }
     
     func durationForAnimation() -> NSTimeInterval {
-        
-        // Start moving the button FASTER once we are 70% into the game
-        if Game.time / Game.maxTime > 0.70 {
-            return 0.5
+        if Game.stage >= 3 {
+            return 0.6
         }
         return 1
     }
     
     func animateDown() {
         
-        UIView.animateWithDuration(durationForAnimation(), delay: 0, options: .CurveEaseInOut, animations: {
+        UIView.animateWithDuration(durationForAnimation(), delay: 0, options: .CurveLinear, animations: {
             [weak self] in
             
             guard let this = self else {
@@ -57,6 +55,10 @@ class SaveCell: UITableViewCell {
             }
             
             this.saveButton.center = CGPointMake(this.saveButton.center.x, this.saveButton.center.y + 210)
+            
+            if Game.stage >= 3 {
+                this.saveButton.transform = CGAffineTransformMakeRotation(CGFloat(180.degreesToRadians))
+            }
             
             }, completion: {
                 [weak self] _ in
@@ -66,7 +68,7 @@ class SaveCell: UITableViewCell {
     
     func animateUp() {
         
-        UIView.animateWithDuration(durationForAnimation(), delay: 0, options: .CurveEaseInOut, animations: {
+        UIView.animateWithDuration(durationForAnimation(), delay: 0, options: .CurveLinear, animations: {
             [weak self] in
             
             guard let this = self else {
@@ -74,6 +76,10 @@ class SaveCell: UITableViewCell {
             }
             
             this.saveButton.center = CGPointMake(this.saveButton.center.x, this.saveButton.center.y - 210)
+            
+            if Game.stage >= 3 {
+                this.saveButton.transform = CGAffineTransformMakeRotation(CGFloat(0.degreesToRadians))
+            }
             
             }, completion: {
                 [weak self] _ in
@@ -83,10 +89,15 @@ class SaveCell: UITableViewCell {
     
     func handleTap(recognizer:UITapGestureRecognizer) {
         
+        guard saveButton.enabled else {
+            return
+        }
+        
         let touchLocation = recognizer.locationInView(self)
         let buttonRect = saveButton.layer.presentationLayer()!.frame
         
         if buttonRect.contains(touchLocation) {
+            saveButton.backgroundColor = Colors.scheme.info
             saveButton.sendActionsForControlEvents(.TouchUpInside)
         }
     }

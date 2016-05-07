@@ -8,7 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GameStatusView" customModule="todoappgame" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="GameStatusView" customModule="todoappgame" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="200" height="42"/>
+            <rect key="frame" x="0.0" y="0.0" width="200" height="40"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To-Do App: The Game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="srt-p9-iY6">
@@ -28,10 +28,19 @@
                         <constraint firstAttribute="height" constant="2" id="Pgn-Tc-lFE"/>
                     </constraints>
                 </progressView>
+                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hLm-1L-cis">
+                    <rect key="frame" x="25" y="23" width="150" height="2"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="2" id="XIX-jU-xKu"/>
+                        <constraint firstAttribute="width" constant="150" id="k0D-mc-e1y"/>
+                    </constraints>
+                </progressView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="62Q-mG-4w6" firstAttribute="top" secondItem="srt-p9-iY6" secondAttribute="bottom" constant="6" id="9eU-Rk-cwa"/>
+                <constraint firstItem="hLm-1L-cis" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="VuF-kI-FG3"/>
+                <constraint firstItem="hLm-1L-cis" firstAttribute="top" secondItem="srt-p9-iY6" secondAttribute="bottom" id="ZfC-7p-ohQ"/>
                 <constraint firstItem="srt-p9-iY6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="2" id="bXE-Mh-hbj"/>
                 <constraint firstItem="62Q-mG-4w6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="25" id="hKy-dh-Qbm"/>
                 <constraint firstItem="srt-p9-iY6" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="uZP-bw-gvX"/>
@@ -40,9 +49,11 @@
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="nextTaskProgressView" destination="hLm-1L-cis" id="XOV-19-J8t"/>
                 <outlet property="progressView" destination="62Q-mG-4w6" id="9L1-N2-a7h"/>
+                <outlet property="titleLabel" destination="srt-p9-iY6" id="85z-If-MX9"/>
             </connections>
-            <point key="canvasLocation" x="316" y="387"/>
+            <point key="canvasLocation" x="316" y="388"/>
         </view>
     </objects>
 </document>

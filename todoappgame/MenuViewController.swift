@@ -16,7 +16,7 @@ class MenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.layer.borderColor = UIColor.grayColor().CGColor
+        view.layer.borderColor = Colors.scheme.inactive.CGColor
         view.layer.borderWidth = 1.0
         view.layer.cornerRadius = 5.0
     }

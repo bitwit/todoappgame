@@ -27,6 +27,7 @@ class DetailViewController: UITableViewController {
         for object in nib {
             if let o = object as? GameStatusView {
                 o.prepare()
+                o.titleLabel.text = "Subtasks"
                 navigationItem.titleView = o
                 break
             }

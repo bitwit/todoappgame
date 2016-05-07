@@ -20,6 +20,8 @@
 		750DF2CD1CDD0E7D0085CB22 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750DF2CC1CDD0E7D0085CB22 /* Notifications.swift */; };
 		7529C1451CDE3E4B00EC2E5F /* SubtaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7529C1441CDE3E4B00EC2E5F /* SubtaskCell.swift */; };
 		7529C1471CDE3E6100EC2E5F /* SaveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7529C1461CDE3E6100EC2E5F /* SaveCell.swift */; };
+		7529C14B1CDEA69500EC2E5F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7529C14A1CDEA69500EC2E5F /* Colors.swift */; };
+		7529C14D1CDEAEEC00EC2E5F /* Int+Radians.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7529C14C1CDEAEEC00EC2E5F /* Int+Radians.swift */; };
 		7543C92D1CDD139800E0E180 /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543C92C1CDD139800E0E180 /* BorderedButton.swift */; };
 		7543C92F1CDD141A00E0E180 /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543C92E1CDD141A00E0E180 /* IntroductionViewController.swift */; };
 		7543C9341CDD152300E0E180 /* PartialModalPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543C9311CDD152300E0E180 /* PartialModalPresentationController.swift */; };
@@ -64,6 +66,8 @@
 		750DF2CC1CDD0E7D0085CB22 /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		7529C1441CDE3E4B00EC2E5F /* SubtaskCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtaskCell.swift; sourceTree = "<group>"; };
 		7529C1461CDE3E6100EC2E5F /* SaveCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveCell.swift; sourceTree = "<group>"; };
+		7529C14A1CDEA69500EC2E5F /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		7529C14C1CDEAEEC00EC2E5F /* Int+Radians.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+Radians.swift"; sourceTree = "<group>"; };
 		7543C92C1CDD139800E0E180 /* BorderedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
 		7543C92E1CDD141A00E0E180 /* IntroductionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionViewController.swift; sourceTree = "<group>"; };
 		7543C9311CDD152300E0E180 /* PartialModalPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartialModalPresentationController.swift; sourceTree = "<group>"; };
@@ -176,6 +180,7 @@
 				750DF2CC1CDD0E7D0085CB22 /* Notifications.swift */,
 				7543C9671CDD29D600E0E180 /* Game.swift */,
 				75D51A5F1CDD9A2000942B20 /* Timer.swift */,
+				7529C14A1CDEA69500EC2E5F /* Colors.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -186,6 +191,7 @@
 				7543C9371CDD172000E0E180 /* StoryboardReference.swift */,
 				7543C92C1CDD139800E0E180 /* BorderedButton.swift */,
 				750DF2BE1CDCFF930085CB22 /* CollectionType+Shuffle.swift */,
+				7529C14C1CDEAEEC00EC2E5F /* Int+Radians.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -263,9 +269,9 @@
 		7560854E1CDC36C1000B4199 /* todoappgame */ = {
 			isa = PBXGroup;
 			children = (
+				750DF2CB1CDD0E6A0085CB22 /* Services */,
 				7543C92B1CDD138900E0E180 /* Helpers */,
 				7543C96B1CDD537700E0E180 /* Sound */,
-				750DF2CB1CDD0E6A0085CB22 /* Services */,
 				750DF2C51CDD04230085CB22 /* Controllers */,
 				750DF2C01CDD035D0085CB22 /* Views */,
 				750DF2B91CDCEA5D0085CB22 /* Models */,
@@ -423,12 +429,14 @@
 				756085551CDC36C2000B4199 /* MasterViewController.swift in Sources */,
 				7543C92F1CDD141A00E0E180 /* IntroductionViewController.swift in Sources */,
 				7543C93F1CDD1B2C00E0E180 /* MenuViewController.swift in Sources */,
+				7529C14D1CDEAEEC00EC2E5F /* Int+Radians.swift in Sources */,
 				7543C9361CDD152300E0E180 /* PartialModalAnimatedTransitioning.swift in Sources */,
 				750DF2CA1CDD08B60085CB22 /* PointsParticleAnimation.swift in Sources */,
 				750DF2BF1CDCFF930085CB22 /* CollectionType+Shuffle.swift in Sources */,
 				7543C92D1CDD139800E0E180 /* BorderedButton.swift in Sources */,
 				75D51A601CDD9A2000942B20 /* Timer.swift in Sources */,
 				7543C9341CDD152300E0E180 /* PartialModalPresentationController.swift in Sources */,
+				7529C14B1CDEA69500EC2E5F /* Colors.swift in Sources */,
 				750DF2B71CDCE53C0085CB22 /* Task+CoreDataProperties.swift in Sources */,
 				7543C97B1CDD66AE00E0E180 /* TaskCell.swift in Sources */,
 				7543C93A1CDD19F600E0E180 /* PauseViewController.swift in Sources */,

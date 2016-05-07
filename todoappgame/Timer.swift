@@ -3,7 +3,7 @@ import Foundation
 
 class Timer:NSObject {
 
-    static let interval:NSTimeInterval = 0.04
+    static let interval:NSTimeInterval = 0.08
     
     private static let instance = Timer()
     private static var timer:NSTimer?

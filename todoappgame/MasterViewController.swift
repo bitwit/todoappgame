@@ -189,24 +189,27 @@ class MasterViewController: UITableViewController {
             return
         }
         
-        c.pointsLabel.alpha = 1
-        c.pointsLabel.transform = CGAffineTransformMakeScale(1.0, 1.0)
         c.bgViewLeftImage = UIImage(named:"icon-checkmark")!
-        c.bgViewLeftColor = UIColor.greenColor()
+        c.bgViewLeftColor = Colors.scheme.success
         c.bgViewRightImage = UIImage(named:"icon-cog")!
-        c.bgViewRightColor = UIColor.blueColor()
+        c.bgViewRightColor = Colors.scheme.info
         c.type = .SpringRelease
         c.delegate = self
         
+        c.titleLabel.textColor = Colors.scheme.textColor
         c.titleLabel.text = task.title
+        
+        c.pointsLabel.alpha = 1
+        c.pointsLabel.transform = CGAffineTransformMakeScale(1.0, 1.0)
         c.pointsLabel.text = task.points!.stringValue
+        c.pointsLabel.textColor = Colors.scheme.textColor
         
         if task.isReadyForCompletion?.boolValue == true {
             c.revealDirection = .Left
-            c.contentView.backgroundColor = UIColor.whiteColor()
+            c.contentView.backgroundColor = Colors.scheme.base
         } else {
             c.revealDirection = .Right
-            c.contentView.backgroundColor = UIColor.yellowColor()
+            c.contentView.backgroundColor = Colors.scheme.info
         }
     }
     
@@ -278,9 +281,10 @@ extension MasterViewController: NSFetchedResultsControllerDelegate {
         case .Delete:
             tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Left)
         case .Update:
-            let cell = tableView.cellForRowAtIndexPath(indexPath!) as! BWSwipeRevealCell
-            let task = anObject as! Task
-            self.configureCell(cell, withObject: task)
+            if let cell = tableView.cellForRowAtIndexPath(indexPath!) as? BWSwipeRevealCell {
+                let task = anObject as! Task
+                self.configureCell(cell, withObject: task)
+            }
         case .Move:
             tableView.moveRowAtIndexPath(indexPath!, toIndexPath: newIndexPath!)
         }

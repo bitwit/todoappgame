@@ -16,7 +16,7 @@ class PartialModalPresentationController: UIPresentationController {
     
     func prepareDimmingView(blurEffectStyle:UIBlurEffectStyle) {
         dimmingView = UIView(frame: UIScreen.mainScreen().bounds)
-        dimmingView.backgroundColor = UIColor.whiteColor()
+        dimmingView.backgroundColor = Colors.scheme.base
 //        dimmingView = UIImageView(image: AppUtility.getCurrentScreenShot())
 //        AppUtility.addBlur(dimmingView, style: blurEffectStyle)
         dimmingView.userInteractionEnabled = true

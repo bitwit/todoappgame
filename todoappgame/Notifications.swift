@@ -26,5 +26,10 @@ struct Notifications {
         
         NSNotificationCenter.defaultCenter().postNotificationName(type.rawValue, object: nil)
     }
+    
+    static func removeObserver(observer: AnyObject) {
+        
+        NSNotificationCenter.defaultCenter().removeObserver(observer)
+    }
 
 }
