@@ -10,8 +10,8 @@ class MasterViewController: UITableViewController {
     
     // Data
     var managedObjectContext: NSManagedObjectContext? = nil
-    var allTasks: Array<[String: Int]>
-    var possibleTasks: Array<[String: Int]> = []
+    var allTasks: Array<[String:Int]>
+    var possibleTasks: Array<[String:Int]> = []
     
     // Timer
     var shouldAddTasks = true
@@ -32,12 +32,13 @@ class MasterViewController: UITableViewController {
         Notifications.observe(self, selector: #selector(pause), type: .Pause)
         Notifications.observe(self, selector: #selector(resume), type: .Resume)
         Notifications.observe(self, selector: #selector(endGame), type: .End)
+        Notifications.observe(self, selector: #selector(tick), type: .Tick)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let menuButton = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: #selector(pause))
+        let menuButton = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: #selector(menuButtonPressed))
         
         loadGameStatusView()
         self.navigationItem.leftBarButtonItem = menuButton
@@ -65,19 +66,11 @@ class MasterViewController: UITableViewController {
     }
     
     
-    // MARK: Timer Stuff
+    // MARK: IBActions
     
-    func startTimer() {
-        
-        gameTimer?.invalidate() // Safety measure, though timer calls *should* be balanced
-        gameTimer = NSTimer.scheduledTimerWithTimeInterval(Game.timerInterval, target: self, selector: #selector(tick), userInfo: nil, repeats: true)
+    @IBAction func menuButtonPressed(){
+        Game.pause()
     }
-    
-    func stopTimer() {
-        
-        gameTimer?.invalidate()
-    }
-    
     
     // MARK: Game Control
     
@@ -95,23 +88,17 @@ class MasterViewController: UITableViewController {
     
     func newGame() {
         
-        Chirp.sharedManager.playSoundType(.Start)
-        Game.onReset()
-        Notifications.post(.Reset)
-        
-        possibleTasks = allTasks.shuffle()
         fetchedResultsController.managedObjectContext.rollback()
+        possibleTasks = allTasks.shuffle()
         
         dismissViewControllerAnimated(true) {
-            self.startTimer()
+        
+            Game.start()
             self.insertNewObject(5)
         }
     }
     
     func pause() {
-        
-        Chirp.sharedManager.playSoundType(.Pause)
-        stopTimer()
         
         let intro = StoryboardReference("Main", "Pause").instantiate()
         presentViewController(intro, animated: true, completion: nil)
@@ -119,18 +106,12 @@ class MasterViewController: UITableViewController {
     
     func resume() {
         
-        dismissViewControllerAnimated(true) {
-            self.startTimer()
-        }
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     func endGame() {
         
-        Chirp.sharedManager.playSoundType(.GameOver)
-        stopTimer()
-        
         if let _ = presentedViewController {
-            
             dismissViewControllerAnimated(true) {
                 self.displayIntro()
             }
@@ -143,15 +124,23 @@ class MasterViewController: UITableViewController {
     
     func tick() {
         
-        Game.onTick()
-        Notifications.post(.Tick)
-        
-        if Game.time > Game.maxTime {
-            endGame()
-        } else {
-            insertNewObject()
-        }
+        insertNewObject()
     }
+    
+    
+    // MARK: - Segues
+    
+    //    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    //        if segue.identifier == "showDetail" {
+    //            if let indexPath = self.tableView.indexPathForSelectedRow {
+    //            let object = self.fetchedResultsController.objectAtIndexPath(indexPath)
+    //                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
+    //                controller.detailItem = object
+    //                controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
+    //                controller.navigationItem.leftItemsSupplementBackButton = true
+    //            }
+    //        }
+    //    }
     
     func insertNewObject(numberOfTasks:Int = 1) {
         
@@ -179,21 +168,6 @@ class MasterViewController: UITableViewController {
     }
     
     
-    // MARK: - Segues
-    
-    //    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    //        if segue.identifier == "showDetail" {
-    //            if let indexPath = self.tableView.indexPathForSelectedRow {
-    //            let object = self.fetchedResultsController.objectAtIndexPath(indexPath)
-    //                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
-    //                controller.detailItem = object
-    //                controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
-    //                controller.navigationItem.leftItemsSupplementBackButton = true
-    //            }
-    //        }
-    //    }
-    
-    
     // MARK: - Table View
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -217,7 +191,7 @@ class MasterViewController: UITableViewController {
     }
     
     func configureCell(cell: BWSwipeRevealCell, withObject task: Task) {
-        
+       
         guard let c = cell as? TaskCell else {
             return
         }
@@ -238,6 +212,8 @@ class MasterViewController: UITableViewController {
     
     
     // MARK: - Fetched results controller
+    
+    var _fetchedResultsController: NSFetchedResultsController? = nil
     
     var fetchedResultsController: NSFetchedResultsController {
         if _fetchedResultsController != nil {
@@ -273,8 +249,8 @@ class MasterViewController: UITableViewController {
         }
         
         return _fetchedResultsController!
-    }    
-    var _fetchedResultsController: NSFetchedResultsController? = nil
+    }
+    
     
 }
 
@@ -312,19 +288,12 @@ extension MasterViewController: NSFetchedResultsControllerDelegate {
         self.tableView.endUpdates()
     }
     
-    /*
-     // Implementing the above methods to update the table view in response to individual changes may have performance implications if a large number of changes are made simultaneously. If this proves to be an issue, you can instead just implement controllerDidChangeContent: which notifies the delegate that all section and object changes have been processed.
-     
-     func controllerDidChangeContent(controller: NSFetchedResultsController) {
-     // In the simplest, most efficient, case, reload the table view.
-     self.tableView.reloadData()
-     }
-     */
 }
 
 extension MasterViewController: BWSwipeRevealCellDelegate {
     
     func swipeCellDidStartSwiping(cell: BWSwipeCell) {
+        
         shouldAddTasks = false
     }
     
@@ -332,24 +301,29 @@ extension MasterViewController: BWSwipeRevealCellDelegate {
         
         shouldAddTasks = true
         
-        guard let taskCell = cell as? TaskCell where cell.state != .Normal else { return }
+        guard let taskCell = cell as? TaskCell
+            where taskCell.state != .Normal
+            else {
+                return
+        }
         
         switch cell.state {
         case .PastThresholdLeft, .PastThresholdRight:
             
-            guard let idx = tableView.indexPathForCell(cell), let task = fetchedResultsController.fetchedObjects![idx.row] as? Task else {
-                return
+            guard let idx = tableView.indexPathForCell(cell),
+                let task = fetchedResultsController.fetchedObjects![idx.row] as? Task
+                else {
+                    return
             }
             
             let points = Int(task.points!.intValue)
             let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             let rootView = appDelegate.window!
             
-            let x = CGRectGetMaxX(cell.frame) - 20
-            let y = CGRectGetMidY(cell.frame)
             
-            let from:CGPoint = cell.superview!.convertPoint(CGPointMake(x, y), toView: rootView)
-            let to: CGPoint = CGPointMake(from.x, 40)
+            let originPoint = CGPointMake(CGRectGetMaxX(taskCell.frame) - 16, taskCell.pointsLabel!.center.y)
+            let from = taskCell.pointsLabel.superview!.convertPoint(originPoint, toView: rootView)
+            let to = CGPointMake(from.x, 40)
             
             let result = Game.onTaskCompletion(points)
             AnimationWindow.sharedInstance.runPointsAnimation(from, to: to, points:result.points)

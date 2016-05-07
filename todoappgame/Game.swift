@@ -1,7 +1,16 @@
 
 struct Game {
     
-    static let timerInterval: Double = 0.75
+    enum State {
+        case StartMenu
+        case PauseMenu
+        case GameOverMenu
+        case Playing
+    }
+    
+    static let state:State = .StartMenu
+    
+    static let timerInterval: Double = 0.85
     static let maxTime: Double = 30.0
     static let multiplierCooldownTime: Double = 1.0
     
@@ -11,15 +20,43 @@ struct Game {
     
     private static var timeSinceLastTaskCompletion: Double = 0
     
-    static func onReset() {
+    static func new() {
+        Notifications.post(.New)
+    }
+    
+    static func start() {
+        
+        Game.reset()
+        Chirp.sharedManager.playSoundType(.Start)
+        
+        Timer.start()
+    }
+    
+    static func pause() {
+    
+        Chirp.sharedManager.playSoundType(.Pause)
+        Timer.stop()
+        
+        Notifications.post(.Pause)
+    }
+    
+    static func resume() {
+        
+        Timer.start()
+        Notifications.post(.Resume)
+    }
+    
+    static func reset() {
         
         Game.time = 0
         Game.score = 0
-        Game.multiplier = 0
+        Game.multiplier = 1
         Game.timeSinceLastTaskCompletion = 0
+        
+        Notifications.post(.Reset)
     }
     
-    static func onTick() {
+    static func tick() {
         
         Game.time += Game.timerInterval
         Game.timeSinceLastTaskCompletion += Game.timerInterval
@@ -27,6 +64,22 @@ struct Game {
         if Game.timeSinceLastTaskCompletion > Game.multiplierCooldownTime && Game.multiplier > 1 {
             Game.multiplier -= 1
         }
+        
+        if Game.time > Game.maxTime {
+            
+            Game.end()
+            return
+        }
+        
+        Notifications.post(.Tick)
+    }
+    
+    static func end() {
+    
+        Chirp.sharedManager.playSoundType(.GameOver)
+        Timer.stop()
+        
+        Notifications.post(.End)
     }
     
     static func onTaskCompletion(points:Int) -> (multiplier:Int, points:Int) {

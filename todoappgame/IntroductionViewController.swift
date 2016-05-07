@@ -7,6 +7,6 @@ class IntroductionViewController: MenuViewController {
 
     @IBAction func startGame(sender: AnyObject) {
         
-        Notifications.post(.New)
+        Game.new()
     }
 }

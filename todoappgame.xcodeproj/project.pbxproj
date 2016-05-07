@@ -45,6 +45,7 @@
 		7560855A1CDC36C2000B4199 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 756085581CDC36C2000B4199 /* Main.storyboard */; };
 		7560855C1CDC36C2000B4199 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7560855B1CDC36C2000B4199 /* Assets.xcassets */; };
 		7560855F1CDC36C2000B4199 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7560855D1CDC36C2000B4199 /* LaunchScreen.storyboard */; };
+		75D51A601CDD9A2000942B20 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D51A5F1CDD9A2000942B20 /* Timer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +90,7 @@
 		7560855B1CDC36C2000B4199 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7560855E1CDC36C2000B4199 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		756085601CDC36C2000B4199 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		75D51A5F1CDD9A2000942B20 /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		F0466DA7D813C19DC4CD9CE5 /* Pods-todoappgame.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-todoappgame.release.xcconfig"; path = "Pods/Target Support Files/Pods-todoappgame/Pods-todoappgame.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -137,7 +139,6 @@
 			isa = PBXGroup;
 			children = (
 				7543C9791CDD669E00E0E180 /* Cells */,
-				7543C92B1CDD138900E0E180 /* Helpers */,
 				750DF2C61CDD08770085CB22 /* Effects */,
 				750DF2C11CDD036E0085CB22 /* ScoreView.swift */,
 				7543C9631CDD27C700E0E180 /* GameStatusView.xib */,
@@ -172,6 +173,7 @@
 			children = (
 				750DF2CC1CDD0E7D0085CB22 /* Notifications.swift */,
 				7543C9671CDD29D600E0E180 /* Game.swift */,
+				75D51A5F1CDD9A2000942B20 /* Timer.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -181,6 +183,7 @@
 			children = (
 				7543C9371CDD172000E0E180 /* StoryboardReference.swift */,
 				7543C92C1CDD139800E0E180 /* BorderedButton.swift */,
+				750DF2BE1CDCFF930085CB22 /* CollectionType+Shuffle.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 		7560854E1CDC36C1000B4199 /* todoappgame */ = {
 			isa = PBXGroup;
 			children = (
+				7543C92B1CDD138900E0E180 /* Helpers */,
 				7543C96B1CDD537700E0E180 /* Sound */,
 				750DF2CB1CDD0E6A0085CB22 /* Services */,
 				750DF2C51CDD04230085CB22 /* Controllers */,
@@ -267,7 +271,6 @@
 				7560855B1CDC36C2000B4199 /* Assets.xcassets */,
 				7560855D1CDC36C2000B4199 /* LaunchScreen.storyboard */,
 				756085601CDC36C2000B4199 /* Info.plist */,
-				750DF2BE1CDCFF930085CB22 /* CollectionType+Shuffle.swift */,
 			);
 			path = todoappgame;
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 				750DF2CA1CDD08B60085CB22 /* PointsParticleAnimation.swift in Sources */,
 				750DF2BF1CDCFF930085CB22 /* CollectionType+Shuffle.swift in Sources */,
 				7543C92D1CDD139800E0E180 /* BorderedButton.swift in Sources */,
+				75D51A601CDD9A2000942B20 /* Timer.swift in Sources */,
 				7543C9341CDD152300E0E180 /* PartialModalPresentationController.swift in Sources */,
 				750DF2B71CDCE53C0085CB22 /* Task+CoreDataProperties.swift in Sources */,
 				7543C97B1CDD66AE00E0E180 /* TaskCell.swift in Sources */,

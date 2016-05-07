@@ -9,12 +9,12 @@ class PauseViewController: MenuViewController {
     
     @IBAction func resume(sender: AnyObject) {
         
-        Notifications.post(.Resume)
+        Game.resume()
     }
     
     @IBAction func quit(sender: AnyObject) {
     
-        Notifications.post(.End)
+        Game.end()
     }
     
 }

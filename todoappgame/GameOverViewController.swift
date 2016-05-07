@@ -14,11 +14,11 @@ class GameOverViewController: MenuViewController {
     
     @IBAction func tryAgain(sender: AnyObject) {
         
-        Notifications.post(.New)
+        Game.new()
     }
     
     @IBAction func quit(sender: AnyObject) {
         
-        Notifications.post(.End)
+        Game.end()
     }
 }
