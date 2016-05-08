@@ -54,6 +54,7 @@
 		7560855C1CDC36C2000B4199 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7560855B1CDC36C2000B4199 /* Assets.xcassets */; };
 		7560855F1CDC36C2000B4199 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7560855D1CDC36C2000B4199 /* LaunchScreen.storyboard */; };
 		75D51A601CDD9A2000942B20 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D51A5F1CDD9A2000942B20 /* Timer.swift */; };
+		75ED7C8F1CDF905F00A3D90C /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ED7C8E1CDF905F00A3D90C /* TaskManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +108,7 @@
 		7560855E1CDC36C2000B4199 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		756085601CDC36C2000B4199 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75D51A5F1CDD9A2000942B20 /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
+		75ED7C8E1CDF905F00A3D90C /* TaskManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
 		F0466DA7D813C19DC4CD9CE5 /* Pods-todoappgame.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-todoappgame.release.xcconfig"; path = "Pods/Target Support Files/Pods-todoappgame/Pods-todoappgame.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -192,6 +194,7 @@
 				75D51A5F1CDD9A2000942B20 /* Timer.swift */,
 				7529C14A1CDEA69500EC2E5F /* Colors.swift */,
 				7529C14E1CDEB49E00EC2E5F /* Score.swift */,
+				75ED7C8E1CDF905F00A3D90C /* TaskManager.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -460,6 +463,7 @@
 				750DF2B71CDCE53C0085CB22 /* Task+CoreDataProperties.swift in Sources */,
 				7543C97B1CDD66AE00E0E180 /* TaskCell.swift in Sources */,
 				7543C93A1CDD19F600E0E180 /* PauseViewController.swift in Sources */,
+				75ED7C8F1CDF905F00A3D90C /* TaskManager.swift in Sources */,
 				750DF2B81CDCE53C0085CB22 /* Task.swift in Sources */,
 				7529C1451CDE3E4B00EC2E5F /* SubtaskCell.swift in Sources */,
 				750DF2CD1CDD0E7D0085CB22 /* Notifications.swift in Sources */,
@@ -580,11 +584,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = todoappgame/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ca.bitwit.todoappgame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "fbf470c9-f399-4179-8553-a267c2a1b919";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -595,7 +599,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Kyle Newsome (334Q375TSA)";
 				INFOPLIST_FILE = todoappgame/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ca.bitwit.todoappgame;
 				PRODUCT_NAME = "$(TARGET_NAME)";

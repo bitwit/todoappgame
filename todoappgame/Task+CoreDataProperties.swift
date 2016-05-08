@@ -19,22 +19,16 @@ extension Task {
     @NSManaged var points: NSNumber?
     @NSManaged var isReadyForCompletion: NSNumber?
     
-    func loadData(data:AnyObject) {
-        guard let d = data as? [String: AnyObject] else {
-            print("[WARNING]: Didn't load data - ", self.title)
-            return
-        }
+    func loadData(data:QueuedTask) {
         
-        if let points = d["points"] as? Int {
-            self.points = points
-        } else {
-            self.points = 1
-        }
+        timeStamp = NSDate()
+        title = data.title
+        points = data.points
         
-        if let subtasks = d["subtasks"] as? [String] {
+        if !data.subtasks.isEmpty {
             
             self.isReadyForCompletion = false
-            self.subtasks = subtasks
+            subtasks = data.subtasks
         } else {
             
             self.isReadyForCompletion = true

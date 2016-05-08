@@ -10,7 +10,7 @@ struct Game {
     
     static var state:State = .Navigating
     
-    static let maxTime: Double = 60.0 //15.0
+    static let maxTime: Double = 15.0
     static let multiplierCooldownTime: Double = 1.0
     static let totalStages = 4
     

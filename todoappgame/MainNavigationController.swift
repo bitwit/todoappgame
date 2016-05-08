@@ -10,6 +10,8 @@ import UIKit
 
 class MainNavigationController: UINavigationController {
     
+    private var isFirstAppearance = true
+    
     internal private(set) var scoreView:ScoreView?
 
     override func viewDidLoad() {
@@ -19,4 +21,23 @@ class MainNavigationController: UINavigationController {
         
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if isFirstAppearance {
+            displayIntro()
+            isFirstAppearance = false
+        }
+    }
+    
+    func displayIntro() {
+        
+        let intro = StoryboardReference("Main", "Introduction").instantiate()
+        presentViewController(intro, animated: true, completion: nil)
+    }
+    
+    func displayGameOver() {
+        
+        let intro = StoryboardReference("Main", "GameOver").instantiate()
+        presentViewController(intro, animated: true, completion: nil)
+    }
 }

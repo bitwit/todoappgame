@@ -32,6 +32,10 @@ class GameStatusView: UIView {
     
     func onTick() {
         
+        guard let _ = progressView, let _ = nextTaskProgressView else {
+            return //protect against crashes in case this is called as everything is deallocating when a VC disappears
+        }
+        
         let newProgress = Float(Game.time / Game.maxTime)
         progressView.setProgress(newProgress, animated: true)
         

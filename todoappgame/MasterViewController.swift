@@ -5,28 +5,11 @@ import BWSwipeRevealCell
 
 class MasterViewController: UITableViewController {
     
-    private var isFirstAppearance = true
-    
-    // Data
     var managedObjectContext: NSManagedObjectContext? = nil
-    var allTasks: Array<[String:AnyObject]>
-    var possibleTasks: Array<[String:AnyObject]> = []
+    let taskManager = TaskManager.sharedInstance
     var currentMistakeCell: TaskCell? = nil
     
-    // Timer
-    var gameTimer: NSTimer?
-    
     required init?(coder aDecoder: NSCoder) {
-        
-        let path = NSBundle.mainBundle().pathForResource("data.json", ofType: nil)!
-        let fileManager = NSFileManager.defaultManager()
-        let data:NSData? = fileManager.contentsAtPath(path)
-        let jsonData = try! NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)
-        
-        allTasks = (jsonData as! Array<[String:AnyObject]>)
-        
-        print("TOTAL TASKS:", allTasks.count)
-        
         super.init(coder:aDecoder)
         
         Notifications.observe(self, selector: #selector(newGame), type: .New)
@@ -46,14 +29,6 @@ class MasterViewController: UITableViewController {
         self.navigationItem.leftBarButtonItem = menuButton
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        if isFirstAppearance {
-            displayIntro()
-            isFirstAppearance = false
-        }
-    }
-    
     func loadGameStatusView() {
         
         let nib = NSBundle.mainBundle().loadNibNamed("GameStatusView", owner: nil, options: nil)
@@ -66,7 +41,6 @@ class MasterViewController: UITableViewController {
         }
     }
     
-    
     // MARK: IBActions
     
     @IBAction func menuButtonPressed(){
@@ -75,31 +49,20 @@ class MasterViewController: UITableViewController {
     
     // MARK: Game Control
     
-    func displayIntro() {
-        
-        let intro = StoryboardReference("Main", "Introduction").instantiate()
-        presentViewController(intro, animated: true, completion: nil)
-    }
-    
-    func displayGameOver() {
-        
-        let intro = StoryboardReference("Main", "GameOver").instantiate()
-        presentViewController(intro, animated: true, completion: nil)
-    }
-    
     func newGame() {
         
         fetchedResultsController.managedObjectContext.rollback()
-        possibleTasks = allTasks.shuffle()
+        taskManager.reset()
         
-        dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true) {
+            self.navigationController?.popToRootViewControllerAnimated(true)
+        }
         
         let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(2 * Double(NSEC_PER_SEC)))
         dispatch_after(delayTime, dispatch_get_main_queue()) {
             
             Game.start()
             self.insertNewObject(3)
-            self.navigationController?.popToRootViewControllerAnimated(true)
         }
     }
     
@@ -117,12 +80,13 @@ class MasterViewController: UITableViewController {
     func endGame() {
         
         if let _ = presentedViewController {
+            
             dismissViewControllerAnimated(true) {
-                self.displayIntro()
+                (self.navigationController as! MainNavigationController).displayIntro()
             }
         } else {
             
-            displayGameOver()
+            (self.navigationController as! MainNavigationController).displayGameOver()
         }
         
     }
@@ -162,19 +126,12 @@ class MasterViewController: UITableViewController {
         
         (0 ..< numberOfTasks).forEach { _ in
             
-            guard let taskData = possibleTasks.popLast() else {
-                return
-            }
-            
+            let taskData = taskManager.pop()
             let context = self.fetchedResultsController.managedObjectContext
             let entity = self.fetchedResultsController.fetchRequest.entity!
             let task:Task = NSEntityDescription.insertNewObjectForEntityForName(entity.name!, inManagedObjectContext: context) as! Task
             
-            taskData.forEach { (title, data) in
-                task.timeStamp = NSDate()
-                task.title = title
-                task.loadData(data)
-            }
+            task.loadData(taskData)
         }
         
     }
@@ -441,8 +398,11 @@ extension MasterViewController: BWSwipeRevealCellDelegate {
             if let isReady = task.isReadyForCompletion?.boolValue
                 where !isReady {
                 
-                Chirp.sharedManager.playSoundType(.Settings)
-                performSegueWithIdentifier("showDetail", sender: cell)
+                if navigationController?.viewControllers.last == self {
+                    
+                    Chirp.sharedManager.playSoundType(.Settings)
+                    performSegueWithIdentifier("showDetail", sender: cell)
+                }
             }
             
         default: break

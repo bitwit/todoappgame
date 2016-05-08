@@ -10,7 +10,7 @@ import UIKit
 
 class DetailViewController: UITableViewController {
     
-    var detailItem: Task!
+    var detailItem: Task?
     
     var completedDictionary:[Int:Bool] = [:]
 
@@ -43,21 +43,39 @@ class DetailViewController: UITableViewController {
     @IBAction func save() {
         
         Chirp.sharedManager.playSoundType(.Save)
-        detailItem.isReadyForCompletion = true
+        detailItem?.isReadyForCompletion = true
         navigationController?.popViewControllerAnimated(true)
     }
     
     func enableSaveButton() {
-        let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: detailItem.subtasks.count, inSection: 0)) as! SaveCell
+        let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: detailItem!.subtasks.count, inSection: 0)) as! SaveCell
         cell.enable()
     }
 
     
     // MARK: - Table View
     
+//    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        return detailItem.title
+//    }
+    
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 60
+    }
+    
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let label = UILabel(frame: CGRectMake(00,0, UIScreen.mainScreen().bounds.width, 60))
+        label.text = "  " + (detailItem?.title ?? "") // easy way to get margin #jamhacks
+        label.textColor = Colors.scheme.textColor
+        label.backgroundColor = Colors.scheme.base
+        label.font = UIFont.systemFontOfSize(28.0, weight: UIFontWeightBold)
+        return label
+    }
+    
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
-        if indexPath.row < detailItem.subtasks.count {
+        if indexPath.row < detailItem?.subtasks.count {
             return 60
         } else {
             return 340
@@ -69,31 +87,31 @@ class DetailViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return detailItem.subtasks.count + 1
+        return (detailItem?.subtasks.count ?? 0) + 1
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        if indexPath.row == detailItem.subtasks.count {
+        if indexPath.row == detailItem?.subtasks.count {
             //save button row
             let cell = tableView.dequeueReusableCellWithIdentifier("SaveCell", forIndexPath: indexPath) as! SaveCell
             return cell
         } else {
         
             let cell = tableView.dequeueReusableCellWithIdentifier("SubtaskCell", forIndexPath: indexPath) as! SubtaskCell
-            cell.titleLabel.text = detailItem.subtasks[indexPath.row]
+            cell.titleLabel.text = detailItem?.subtasks[indexPath.row]
             return cell
         }
     }
     
     override func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         
-        return (indexPath.row < detailItem.subtasks.count) ? true : false
+        return (indexPath.row < detailItem?.subtasks.count) ? true : false
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        guard indexPath.row < detailItem.subtasks.count else {
+        guard indexPath.row < detailItem?.subtasks.count else {
             return
         }
         
@@ -102,7 +120,7 @@ class DetailViewController: UITableViewController {
         
         completedDictionary[indexPath.row] = true
         
-        if completedDictionary.count == detailItem.subtasks.count {
+        if completedDictionary.count == detailItem?.subtasks.count {
         
             enableSaveButton()
         }
