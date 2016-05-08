@@ -12,13 +12,29 @@ class HintView: UIView {
     
     func animateImage() {
         
-        UIView.animateWithDuration(0.65, delay: 0.5, options: .CurveLinear, animations: {
+        UIView.animateWithDuration(0.65, delay: 0.2, options: .CurveEaseInOut, animations: {
             
-            let translation:CGFloat = self.restorationIdentifier == "hint2" ? -50 : 50
+            [weak self] in
             
-            self.animateableImageView.transform = CGAffineTransformMakeTranslation(translation, 0)
+            guard let this = self else {
+                return
+            }
             
-        }, completion: nil)
+            let translation:CGFloat = this.restorationIdentifier == "hint2" ? -50 : 50
+            
+            this.animateableImageView.transform = CGAffineTransformMakeTranslation(translation, 0)
+            
+            }, completion: {
+                
+                [weak self] _ in
+                
+                guard let this = self else {
+                    return
+                }
+                
+                this.animateableImageView.transform = CGAffineTransformMakeTranslation(0, 0)
+                this.animateImage()
+            })
     }
     
 }

@@ -3,7 +3,7 @@ import UIKit
 
 struct Colors {
     
-    static var scheme:ColorTheme = BootstrapDarkTheme()
+    static var scheme:ColorTheme = SophiaTheme()
     
     static func conformAppearanceToTheme() {
         let a = UINavigationBar.appearance()
@@ -17,7 +17,7 @@ struct Colors {
     
         bar.tintColor = Colors.scheme.tintColor
         bar.titleTextAttributes = [NSForegroundColorAttributeName:Colors.scheme.textColor]
-        bar.setBackgroundImage(UIImage.fromColor(Colors.scheme.base), forBarMetrics: .Default)
+        bar.setBackgroundImage(UIImage.fromColor(Colors.scheme.navigationBarColor), forBarMetrics: .Default)
     }
     
 }
@@ -30,10 +30,12 @@ protocol ColorTheme {
     
     var primary:UIColor { get }
     var success:UIColor { get }
+    
     var info:UIColor { get }
     var warning:UIColor { get }
     var danger:UIColor { get }
     
+    var settings:UIColor { get }
     var inactive:UIColor { get }
     var inactiveLight:UIColor { get }
     
@@ -41,68 +43,63 @@ protocol ColorTheme {
     
     var tintColor:UIColor { get }
     var statusBarStyle:UIStatusBarStyle { get }
-
+    
+    var navigationBarColor: UIColor { get }
+    var cellTextColor: UIColor { get }
 }
 
 enum ColorThemeType: String {
-    case Bootstrap = "Bootstrap"
-    case BootstrapDark = "BootstrapDark"
+    case Sophia = "Sophia"
     
     func colorTheme() -> ColorTheme {
         switch self {
-        case .Bootstrap:
-            return BootstrapTheme()
-        case .BootstrapDark:
-            return BootstrapDarkTheme()
+        case .Sophia:
+            return SophiaTheme()
         }
     }
     
-    static let allValues:[ColorThemeType] = [.Bootstrap, .BootstrapDark]
+    static let allValues:[ColorThemeType] = [.Sophia]
 }
 
-struct BootstrapTheme: ColorTheme {
+struct SophiaTheme {
     
-    var type:ColorThemeType = .Bootstrap
+    var red = UIColor(hex:0xff5858)
+    var mainGreen = UIColor(hex:0x0d9f9f)
+    var darkerGreen = UIColor(hex:0x36756c)
+    var offBlack = UIColor(hex:0x1e1e1e)
+    var mutedGreen = UIColor(hex:0x769377)
+    var midGray = UIColor(hex:0xa3afa3)
+    var grayishGreen = UIColor(hex:0xc1cec2)
     
-    var base = UIColor.whiteColor()
-    
-    var primary = UIColor(hex:0x337ab7)
-    var success = UIColor(hex:0x5cb85c)
-    var info = UIColor(hex:0x5bc0de)
-    var warning = UIColor(hex:0xf0ad4e)
-    var danger = UIColor(hex:0xd9534f)
-    
-    var inactive = UIColor.grayColor()
-    var inactiveLight = UIColor.lightGrayColor()
-    
-    var textColor = UIColor.blackColor()
-    
-    var tintColor = UIColor.blackColor()
-    var statusBarStyle = UIStatusBarStyle.Default
-    
+    var type:ColorThemeType = .Sophia
 }
 
-struct BootstrapDarkTheme: ColorTheme {
+extension SophiaTheme: ColorTheme {
+    //Protocol
     
-    var type:ColorThemeType = .BootstrapDark
+    var primary: UIColor { return mainGreen }
     
-    var primary = UIColor(hex:0x337ab7)
+    var base:UIColor { return UIColor.whiteColor() }
     
-    var base: UIColor { return primary }
+    var success: UIColor { return darkerGreen }
     
-    var success = UIColor(hex:0x5cb85c)
-    var info = UIColor(hex:0x5bc0de)
-    var warning = UIColor(hex:0xf0ad4e)
-    var danger = UIColor(hex:0xd9534f)
+    var info: UIColor { return grayishGreen }
+    var warning: UIColor { return mutedGreen }
     
-    var inactive = UIColor.grayColor()
-    var inactiveLight = UIColor.lightGrayColor()
+    var danger:UIColor { return red }
     
-    var textColor = UIColor.whiteColor()
+    var settings:UIColor { return mainGreen }
     
-    var tintColor = UIColor.whiteColor()
-    var statusBarStyle = UIStatusBarStyle.LightContent
+    var inactive: UIColor { return midGray }
+    var inactiveLight: UIColor { return grayishGreen }
     
+    var textColor:UIColor { return UIColor.whiteColor() }
+    var tintColor:UIColor { return midGray }
+    
+    var statusBarStyle:UIStatusBarStyle { return UIStatusBarStyle.LightContent }
+    
+    var navigationBarColor:UIColor { return offBlack }
+    var cellTextColor: UIColor { return offBlack }
 }
 
 extension UIImage {

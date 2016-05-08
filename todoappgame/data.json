@@ -3,9 +3,9 @@
     "Grow a 3ft beard": {
       "points": 9,
       "subtasks": [
-        "Grow 1ft",
-        "Grow 2ft",
-        "Grow 3ft"
+        "Grow beard 1ft",
+        "Grow beard 2ft",
+        "Grow beard 3ft"
       ]
     }
   },
@@ -74,10 +74,10 @@
     "Learn 4 spoken languages": {
       "points": 12,
       "subtasks": [
-        "Language 1",
-        "Language 2",
-        "Language 3",
-        "Language 4"
+        "Learn Klingon",
+        "Learn Elvish",
+        "Learn Dothraki",
+        "Learn Alienese"
       ]
     }
   },
@@ -127,13 +127,13 @@
     }
   },
   {
-    "EGOT": {
+    "Earn the EGOT": {
       "points": 12,
       "subtasks": [
-        "Emmy",
-        "Grammy",
-        "Oscar",
-        "Tony"
+        "Win Emmy",
+        "Win Grammy",
+        "Win Oscar",
+        "Win Tony"
       ]
     }
   },
@@ -159,7 +159,12 @@
   },
   {
     "Help horse do a keg stand": {
-      "points": 1
+      "points": 9,
+      "subtasks": [
+        "Lift horse",
+        "Hold for 30 seconds",
+        "Don't get kicked in face"
+      ]
     }
   },
   {
@@ -229,18 +234,23 @@
     }
   },
   {
-    "Go agile": {
-      "points": 1
-    }
-  },
-  {
     "Start a startup and fail then succeed": {
-      "points": 1
+      "points": 9,
+      "subtasks": [
+        "Start a business",
+        "Fail at said business",
+        "Pivot and sell for milllions"
+      ]
     }
   },
   {
     "Develop a brand line of perfumes": {
-      "points": 1
+      "points": 9,
+      "subtasks": [
+        "Breath of the flower",
+        "Absolution",
+        "Eau de Narcissus"
+      ]
     }
   },
   {
@@ -265,7 +275,11 @@
   },
   {
     "Deliver a keynote speech in place of Tim Cook": {
-      "points": 1
+      "points": 6,
+      "subtasks": [
+        "Discuss wearable tech",
+        "Announce the iPatch"
+      ]
     }
   },
   {
@@ -384,11 +398,12 @@
     }
   },
   {
-    "Enter a friend's dream within a dream": {
-      "points": 6,
+    "Enter a friend's dream within a dream within a dream": {
+      "points": 9,
       "subtasks": [
         "Enter dream",
-        "Enter dream within that dream"
+        "Enter dream within that dream",
+        "Enter dream within that dream within the dream"
       ]
     }
   },

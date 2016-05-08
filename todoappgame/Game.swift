@@ -12,7 +12,7 @@ struct Game {
     
     static let maxTime: Double = 60.0 //15.0
     static let multiplierCooldownTime: Double = 1.0
-    static let totalStages = 4
+    static let totalStages = 5
     
     static var time: Double = 0
     static var multiplier: Int = 1
@@ -135,7 +135,16 @@ struct Game {
             Game.stage = stage
             
             let exclam = String(count: stage - 1, repeatedValue: Character("!"))
-            let text = "Stage " + String(stage) + exclam
+            
+            let text:String
+            if stage == Game.totalStages {
+                
+                let remainingTime = Int(ceil(Game.maxTime - Game.time))
+                text = "\(remainingTime)s left!"
+            } else {
+            
+                text = "Stage " + String(stage) + exclam
+            }
             AnimationWindow.sharedInstance.runAnnouncementAnimation(text)
             Chirp.sharedManager.playSoundType(.StageUp)
             

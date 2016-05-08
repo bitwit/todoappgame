@@ -9,6 +9,7 @@ class IntroductionViewController: MenuViewController {
     override func viewWillAppear(animated: Bool) {
         
         super.viewWillAppear(animated)
+        
         highScoreLabel.text = "Highscore: \(Score.highScore)"
     }
 

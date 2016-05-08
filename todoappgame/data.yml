@@ -1,9 +1,9 @@
 - Grow a 3ft beard:
         points: 9
         subtasks:
-                - Grow 1ft
-                - Grow 2ft
-                - Grow 3ft
+                - Grow beard 1ft
+                - Grow beard 2ft
+                - Grow beard 3ft
 - Visit the moon:
         points: 12
         subtasks:
@@ -34,10 +34,10 @@
 - Learn 4 spoken languages:
         points: 12
         subtasks:
-                - Language 1
-                - Language 2
-                - Language 3
-                - Language 4
+                - Learn Klingon
+                - Learn Elvish
+                - Learn Dothraki
+                - Learn Alienese
 - Get knighted by the Queen:
         points: 1
 - Become President of the USA:
@@ -56,13 +56,13 @@
         points: 1
 - Disprove gravity:
         points: 1
-- EGOT:
+- Earn the EGOT:
         points: 12
         subtasks:
-                - Emmy
-                - Grammy
-                - Oscar
-                - Tony
+                - Win Emmy
+                - Win Grammy
+                - Win Oscar
+                - Win Tony
 - "Protect Hell's Kitchen":
         points: 1
 - Gain superpower from a thunderstorm:
@@ -72,13 +72,17 @@
 - Become a rock and roll legend:
         points: 1
 - Help horse do a keg stand:
-        points: 1
+        points: 9
+        subtasks:
+                - "Lift horse"
+                - "Hold for 30 seconds"
+                - "Don't get kicked in face"
 - Fart the alphabet:
         points: 9
         subtasks:
-                - Fart letters A - I
-                - Fart letters J - R
-                - Fart letters S - Z
+                - "Fart letters A - I"
+                - "Fart letters J - R"
+                - "Fart letters S - Z"
 - Shampoo a Kangaroo:
         points: 1
 - Teach a monkey sign language:
@@ -104,12 +108,18 @@
         points: 1
 - Grow an apple tree and make pie:
         points: 1
-- Go agile:
-        points: 1
 - Start a startup and fail then succeed:
-        points: 1
+        points: 9
+        subtasks:
+                - Start a business
+                - Fail at said business
+                - Pivot and sell for milllions
 - Develop a brand line of perfumes:
-        points: 1
+        points: 9
+        subtasks:
+                - Breath of the flower
+                - Absolution
+                - Eau de Narcissus
 - Invent a smell:
         points: 1
 - Taste a color:
@@ -119,7 +129,10 @@
 - "Open a Mom & Pop gun shop":
         points: 1
 - Deliver a keynote speech in place of Tim Cook:
-        points: 1
+        points: 6
+        subtasks:
+                - Discuss wearable tech
+                - Announce the iPatch
 - Swim across the Atlantic:
         points: 1
 - Levitate:
@@ -172,11 +185,12 @@
         points: 1
 - Donate hair to Donald Trump:
         points: 1
-- "Enter a friend's dream within a dream":
-        points: 6
+- "Enter a friend's dream within a dream within a dream":
+        points: 9
         subtasks:
                 - Enter dream
                 - Enter dream within that dream
+                - Enter dream within that dream within the dream
 - Make this game:
         points: 1
 - Lick your elbow:

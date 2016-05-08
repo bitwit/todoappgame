@@ -55,21 +55,18 @@ class DetailViewController: UITableViewController {
     
     // MARK: - Table View
     
-//    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        return detailItem.title
-//    }
-    
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 60
     }
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        let label = UILabel(frame: CGRectMake(00,0, UIScreen.mainScreen().bounds.width, 60))
-        label.text = "  " + (detailItem?.title ?? "") // easy way to get margin #jamhacks
+        let label = InsetLabel(frame: CGRectMake(00,0, UIScreen.mainScreen().bounds.width, 60))
+        label.text = (detailItem?.title ?? "")
         label.textColor = Colors.scheme.textColor
-        label.backgroundColor = Colors.scheme.base
-        label.font = UIFont.systemFontOfSize(28.0, weight: UIFontWeightBold)
+        label.backgroundColor = Colors.scheme.settings
+        label.font = UIFont.systemFontOfSize(20.0, weight: UIFontWeightBold)
+        label.numberOfLines = 0
         return label
     }
     

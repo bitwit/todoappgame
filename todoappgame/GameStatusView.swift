@@ -22,7 +22,14 @@ class GameStatusView: UIView {
     
         titleLabel.textColor = Colors.scheme.textColor
         let newProgress = Float(Game.time / Game.maxTime)
+        
+        progressView.trackTintColor = Colors.scheme.info
+        progressView.progressTintColor = Colors.scheme.primary
+        
         progressView.setProgress(newProgress, animated: false)
+        
+        nextTaskProgressView.trackTintColor = Colors.scheme.info
+        nextTaskProgressView.progressTintColor = Colors.scheme.primary
     }
     
     func onReset() {

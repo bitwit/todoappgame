@@ -59,8 +59,8 @@ class PointsParticleAnimation: UIView {
         self.duration = 0.2 + min(Double(distance([from, curve, to]) / 500), 1) // - Double(arc4random()) / 2 / Double(UINT32_MAX)
         self.path = createBezierPath(from, to: to, curve: curve).CGPath
         self.center = from
-        self.backgroundColor = Colors.scheme.warning
-        self.layer.borderColor = Colors.scheme.danger.CGColor
+        self.backgroundColor = Colors.scheme.primary
+        self.layer.borderColor = Colors.scheme.inactiveLight.CGColor
         self.layer.borderWidth = 1
         self.createAnimation(path, layer: self.layer)
         self.layer.position = to

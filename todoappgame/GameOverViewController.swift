@@ -9,6 +9,8 @@ class GameOverViewController: MenuViewController {
     
     override func viewWillAppear(animated: Bool) {
         
+        super.viewWillAppear(animated)
+        
         pointsLabel.alpha = 0
         highScoreLabel.alpha = 0
     }

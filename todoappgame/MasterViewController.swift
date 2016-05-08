@@ -62,7 +62,7 @@ class MasterViewController: UITableViewController {
         dispatch_after(delayTime, dispatch_get_main_queue()) {
             
             Game.start()
-            self.insertNewObject(3)
+            self.insertNewObject(6)
         }
     }
     
@@ -169,13 +169,13 @@ class MasterViewController: UITableViewController {
         c.revealDirection = .Both
         c.delegate = self
         
-        c.titleLabel.textColor = Colors.scheme.textColor
+        c.titleLabel.textColor = Colors.scheme.cellTextColor
         c.titleLabel.text = task.title
         
         c.pointsLabel.alpha = 1
         c.pointsLabel.transform = CGAffineTransformMakeScale(1.0, 1.0)
         c.pointsLabel.text = task.points!.stringValue
-        c.pointsLabel.textColor = Colors.scheme.textColor
+        c.pointsLabel.textColor = Colors.scheme.cellTextColor
         
         if task.isReadyForCompletion?.boolValue == true {
             
@@ -190,7 +190,7 @@ class MasterViewController: UITableViewController {
             c.bgViewLeftImage = UIImage(named:"icon-disabled")!
             c.bgViewLeftColor = Colors.scheme.danger
             c.bgViewRightImage = UIImage(named:"icon-cog")!
-            c.bgViewRightColor = Colors.scheme.info
+            c.bgViewRightColor = Colors.scheme.settings
         }
     }
     

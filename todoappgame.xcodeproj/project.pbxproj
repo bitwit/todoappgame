@@ -57,6 +57,7 @@
 		75ED7C8F1CDF905F00A3D90C /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ED7C8E1CDF905F00A3D90C /* TaskManager.swift */; };
 		75ED7C921CDFAE9500A3D90C /* Hints.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75ED7C911CDFAE9500A3D90C /* Hints.xib */; };
 		75ED7C941CDFB17300A3D90C /* HintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ED7C931CDFB17300A3D90C /* HintView.swift */; };
+		75ED7C961CDFD6C500A3D90C /* InsetLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ED7C951CDFD6C500A3D90C /* InsetLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -113,6 +114,7 @@
 		75ED7C8E1CDF905F00A3D90C /* TaskManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
 		75ED7C911CDFAE9500A3D90C /* Hints.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Hints.xib; sourceTree = "<group>"; };
 		75ED7C931CDFB17300A3D90C /* HintView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HintView.swift; sourceTree = "<group>"; };
+		75ED7C951CDFD6C500A3D90C /* InsetLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsetLabel.swift; sourceTree = "<group>"; };
 		F0466DA7D813C19DC4CD9CE5 /* Pods-todoappgame.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-todoappgame.release.xcconfig"; path = "Pods/Target Support Files/Pods-todoappgame/Pods-todoappgame.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -211,6 +213,7 @@
 				7543C92C1CDD139800E0E180 /* BorderedButton.swift */,
 				750DF2BE1CDCFF930085CB22 /* CollectionType+Shuffle.swift */,
 				7529C14C1CDEAEEC00EC2E5F /* Int+Radians.swift */,
+				75ED7C951CDFD6C500A3D90C /* InsetLabel.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -466,6 +469,7 @@
 				750DF2C81CDD088D0085CB22 /* AnimationWindow.swift in Sources */,
 				7543C9351CDD152300E0E180 /* PartialModalTransitioner.swift in Sources */,
 				756085551CDC36C2000B4199 /* MasterViewController.swift in Sources */,
+				75ED7C961CDFD6C500A3D90C /* InsetLabel.swift in Sources */,
 				7543C92F1CDD141A00E0E180 /* IntroductionViewController.swift in Sources */,
 				7543C93F1CDD1B2C00E0E180 /* MenuViewController.swift in Sources */,
 				7529C14D1CDEAEEC00EC2E5F /* Int+Radians.swift in Sources */,
@@ -605,6 +609,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ca.bitwit.todoappgame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -620,6 +625,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ca.bitwit.todoappgame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "c9c36c28-f07a-4667-9762-08cda494d8b9";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
