@@ -92,8 +92,8 @@ struct Game {
             
             Game.timeSinceLastTaskAdded = 0
             Game.addTaskInterval -= 0.15
-            if Game.addTaskInterval < 0.8 {
-                Game.addTaskInterval = 0.8
+            if Game.addTaskInterval < 0.7 {
+                Game.addTaskInterval = 0.7
             }
             
             Notifications.post(.AddTask)

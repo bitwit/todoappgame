@@ -17,14 +17,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-app-in-game" translatesAutoresizingMaskIntoConstraints="NO" id="nsd-Ri-YGF">
-                                <rect key="frame" x="260" y="260" width="80" height="80"/>
+                                <rect key="frame" x="260" y="224" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="cNc-lJ-bB4"/>
                                     <constraint firstAttribute="width" constant="80" id="vpZ-vB-ouo"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To-Do App: The Game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfT-9l-H7R">
-                                <rect key="frame" x="160" y="341" width="280" height="51"/>
+                                <rect key="frame" x="160" y="305" width="280" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="280" id="ILu-Sd-RvD"/>
                                     <constraint firstAttribute="height" constant="51" id="Qpk-NY-FIc"/>
@@ -36,7 +36,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="nsd-Ri-YGF" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="0it-Ur-8EP"/>
+                            <constraint firstItem="nsd-Ri-YGF" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-36" id="0it-Ur-8EP"/>
                             <constraint firstItem="hfT-9l-H7R" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="i9R-IQ-xs5"/>
                             <constraint firstItem="hfT-9l-H7R" firstAttribute="top" secondItem="nsd-Ri-YGF" secondAttribute="bottom" constant="1" id="vBx-MV-QMo"/>
                             <constraint firstItem="nsd-Ri-YGF" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="yal-jZ-aVe"/>
