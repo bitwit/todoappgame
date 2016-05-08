@@ -57,6 +57,7 @@ class MasterViewController: UITableViewController {
         let nib = NSBundle.mainBundle().loadNibNamed("GameStatusView", owner: nil, options: nil)
         for object in nib {
             if let o = object as? GameStatusView {
+                o.prepare()
                 navigationItem.titleView = o
                 break
             }
@@ -92,7 +93,7 @@ class MasterViewController: UITableViewController {
         dismissViewControllerAnimated(true) {
         
             Game.start()
-            self.insertNewObject(8)
+            self.insertNewObject(3)
             self.navigationController?.popToRootViewControllerAnimated(true)
         }
     }
@@ -232,7 +233,7 @@ class MasterViewController: UITableViewController {
         fetchRequest.fetchBatchSize = 20
         
         // Edit the sort key as appropriate.
-        let sortDescriptor = NSSortDescriptor(key: "timeStamp", ascending: false)
+        let sortDescriptor = NSSortDescriptor(key: "timeStamp", ascending: true)
         
         fetchRequest.sortDescriptors = [sortDescriptor]
         
@@ -320,11 +321,13 @@ extension MasterViewController: BWSwipeRevealCellDelegate {
             let rootView = appDelegate.window!
             
             
-            let originPoint = CGPointMake(CGRectGetMaxX(taskCell.frame) - 16, taskCell.pointsLabel!.center.y)
+            let originPoint = CGPointMake(CGRectGetMaxX(taskCell.frame) - 40, taskCell.pointsLabel!.center.y)
             let from = taskCell.pointsLabel.superview!.convertPoint(originPoint, toView: rootView)
-            let to = CGPointMake(from.x, 40)
+            let to = CGPointMake(CGRectGetMaxX(taskCell.frame) - 16, 40)
             
             let result = Game.onTaskCompletion(points)
+            Score.appendToHistory(task.title!, points: result.points, multiplier: result.multiplier)
+            
             AnimationWindow.sharedInstance.runPointsAnimation(from, to: to, points:result.points)
             if result.multiplier > 1 {
                 AnimationWindow.sharedInstance.runMultiplierAnimation(from, withValue:result.multiplier)
@@ -334,7 +337,7 @@ extension MasterViewController: BWSwipeRevealCellDelegate {
             
             fetchedResultsController.managedObjectContext.deleteObject(task)
             
-            UIView.animateWithDuration(0.2) {
+            UIView.animateWithDuration(0.2) { // animate the points label disappearing softly
                 taskCell.pointsLabel.alpha = 0
                 taskCell.pointsLabel.transform = CGAffineTransformMakeScale(2.0, 2.0)
             }

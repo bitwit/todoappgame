@@ -56,6 +56,12 @@
                                     <action selector="startGame:" destination="b6e-nX-2Pv" eventType="touchUpInside" id="ZjB-uv-6wc"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Highest Score:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KDy-W0-tzf">
+                                <rect key="frame" x="27" y="226" width="226" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -63,6 +69,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="280" height="400"/>
                     <connections>
+                        <outlet property="highScoreLabel" destination="KDy-W0-tzf" id="qNO-FA-2mL"/>
                         <outlet property="startButton" destination="aVg-Fc-2Ga" id="B40-Ds-hTa"/>
                     </connections>
                 </viewController>
@@ -311,15 +318,6 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VNv-bt-AP3" customClass="BorderedButton" customModule="todoappgame" customModuleProvider="target">
-                                <rect key="frame" x="68" y="262" width="145" height="30"/>
-                                <state key="normal" title="DONE">
-                                    <color key="titleColor" red="0.97254901959999995" green="0.035294117649999998" blue="0.043137254899999998" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="quit:" destination="U9e-8h-e7d" eventType="touchUpInside" id="3zq-WI-GTT"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You feel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jNc-5r-j4Y">
                                 <rect key="frame" x="110" y="74" width="61" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -338,13 +336,19 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xay-TT-ebi" customClass="BorderedButton" customModule="todoappgame" customModuleProvider="target">
-                                <rect key="frame" x="52" y="211" width="176" height="36"/>
-                                <state key="normal" title="ACCOMPLISH MORE">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Highest Score:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0oJ-rV-EZt">
+                                <rect key="frame" x="27" y="191" width="226" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VNv-bt-AP3" customClass="BorderedButton" customModule="todoappgame" customModuleProvider="target">
+                                <rect key="frame" x="69" y="232" width="145" height="30"/>
+                                <state key="normal" title="I'M AWESOME">
                                     <color key="titleColor" red="0.29856861890000003" green="0.87297858390000005" blue="0.047913024479999997" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="tryAgain:" destination="U9e-8h-e7d" eventType="touchUpInside" id="2es-H4-sSv"/>
+                                    <action selector="quit:" destination="U9e-8h-e7d" eventType="touchUpInside" id="3zq-WI-GTT"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -354,9 +358,9 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="280" height="400"/>
                     <connections>
+                        <outlet property="highScoreLabel" destination="0oJ-rV-EZt" id="Qj1-5t-AYO"/>
                         <outlet property="pointsLabel" destination="Xm8-Ct-vJr" id="mrm-TA-Elq"/>
                         <outlet property="quitButton" destination="VNv-bt-AP3" id="ATX-NW-1OK"/>
-                        <outlet property="tryAgainButton" destination="Xay-TT-ebi" id="Szk-Dj-CIJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AB3-7X-W6h" userLabel="First Responder" sceneMemberID="firstResponder"/>

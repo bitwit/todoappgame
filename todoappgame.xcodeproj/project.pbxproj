@@ -22,6 +22,7 @@
 		7529C1471CDE3E6100EC2E5F /* SaveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7529C1461CDE3E6100EC2E5F /* SaveCell.swift */; };
 		7529C14B1CDEA69500EC2E5F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7529C14A1CDEA69500EC2E5F /* Colors.swift */; };
 		7529C14D1CDEAEEC00EC2E5F /* Int+Radians.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7529C14C1CDEAEEC00EC2E5F /* Int+Radians.swift */; };
+		7529C14F1CDEB49E00EC2E5F /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7529C14E1CDEB49E00EC2E5F /* Score.swift */; };
 		7543C92D1CDD139800E0E180 /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543C92C1CDD139800E0E180 /* BorderedButton.swift */; };
 		7543C92F1CDD141A00E0E180 /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543C92E1CDD141A00E0E180 /* IntroductionViewController.swift */; };
 		7543C9341CDD152300E0E180 /* PartialModalPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543C9311CDD152300E0E180 /* PartialModalPresentationController.swift */; };
@@ -68,6 +69,7 @@
 		7529C1461CDE3E6100EC2E5F /* SaveCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveCell.swift; sourceTree = "<group>"; };
 		7529C14A1CDEA69500EC2E5F /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		7529C14C1CDEAEEC00EC2E5F /* Int+Radians.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+Radians.swift"; sourceTree = "<group>"; };
+		7529C14E1CDEB49E00EC2E5F /* Score.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
 		7543C92C1CDD139800E0E180 /* BorderedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
 		7543C92E1CDD141A00E0E180 /* IntroductionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionViewController.swift; sourceTree = "<group>"; };
 		7543C9311CDD152300E0E180 /* PartialModalPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartialModalPresentationController.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				7543C9671CDD29D600E0E180 /* Game.swift */,
 				75D51A5F1CDD9A2000942B20 /* Timer.swift */,
 				7529C14A1CDEA69500EC2E5F /* Colors.swift */,
+				7529C14E1CDEB49E00EC2E5F /* Score.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 				750DF2C21CDD036E0085CB22 /* ScoreView.swift in Sources */,
 				7543C93C1CDD1A1C00E0E180 /* GameOverViewController.swift in Sources */,
 				756085531CDC36C1000B4199 /* todoappgame.xcdatamodeld in Sources */,
+				7529C14F1CDEB49E00EC2E5F /* Score.swift in Sources */,
 				750DF2C81CDD088D0085CB22 /* AnimationWindow.swift in Sources */,
 				7543C9351CDD152300E0E180 /* PartialModalTransitioner.swift in Sources */,
 				756085551CDC36C2000B4199 /* MasterViewController.swift in Sources */,

@@ -29,11 +29,13 @@ final class AnimationWindow: UIWindow {
         }
         
         dispatch_async(dispatch_get_main_queue()) {
+            
             let view = self.rootViewController!.view
             let degrees = 360 / points
+            
             for i in 0..<points {
-                let angle:Double = Double(i * degrees)
-                //TODO: Proportional duration. Get all distances first then set desired proportional durations from a max value.
+                // calculate random angle if there arent many points, or uniform circular for more than 4
+                let angle:Double = points > 4 ? Double(i * degrees): Double(arc4random_uniform(360))
                 let particle = PointsParticleAnimation(from: from, to: to, angle: angle)
                 view.addSubview(particle)
             }

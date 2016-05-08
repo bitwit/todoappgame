@@ -20,6 +20,7 @@ class GameStatusView: UIView {
     
     func prepare() {
     
+        titleLabel.textColor = Colors.scheme.textColor
         let newProgress = Float(Game.time / Game.maxTime)
         progressView.setProgress(newProgress, animated: false)
     }

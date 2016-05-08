@@ -4,24 +4,21 @@ import Foundation
 struct Game {
     
     enum State {
-        case StartMenu
-        case PauseMenu
-        case GameOverMenu
+        case Navigating
         case Playing
     }
     
-    static let state:State = .StartMenu
+    static var state:State = .Navigating
     
-    static let maxTime: Double = 60.0
+    static let maxTime: Double = 60.0 //15.0
     static let multiplierCooldownTime: Double = 1.0
     static let totalStages = 4
     
     static var time: Double = 0
-    static var score: Int = 0
     static var multiplier: Int = 1
     static var stage: Int = 1
     
-    static var addTaskInterval: Double = 2
+    static var addTaskInterval: Double = 1.5
     static var timeSinceLastTaskAdded: Double = 0
     
     private static var timeSinceLastTaskCompletion: Double = 0
@@ -35,6 +32,7 @@ struct Game {
         
         Game.reset()
         Chirp.sharedManager.playSoundType(.Start)
+        Game.state = .Playing
         
         Timer.start()
     }
@@ -42,6 +40,7 @@ struct Game {
     static func pause() {
     
         Chirp.sharedManager.playSoundType(.Pause)
+        Game.state = .Navigating
         Timer.stop()
         
         Notifications.post(.Pause)
@@ -49,14 +48,17 @@ struct Game {
     
     static func resume() {
         
+        Game.state = .Playing
         Timer.start()
+        
         Notifications.post(.Resume)
     }
     
     static func reset() {
         
+        Score.reset()
+        
         Game.time = 0
-        Game.score = 0
         Game.multiplier = 1
         Game.stage = 0
         Game.addTaskInterval = 3.0
@@ -101,6 +103,7 @@ struct Game {
     static func end() {
         
         Chirp.sharedManager.playSoundType(.GameOver)
+        Game.state = .Navigating
         Timer.stop()
         
         Notifications.post(.End)
@@ -112,7 +115,6 @@ struct Game {
         let result = (multiplier: Game.multiplier, points:totalPoints)
         
         Game.timeSinceLastTaskCompletion = 0
-        Game.score += totalPoints
         Game.multiplier += 1
         
         return result

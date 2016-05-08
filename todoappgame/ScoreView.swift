@@ -18,6 +18,7 @@ class ScoreView: UIView {
     init (navigationBar:UINavigationBar?) {
         super.init(frame: CGRect(x: 0, y: 0, width: 32, height: 32))
         
+        pointsLabel.textColor = Colors.scheme.textColor
         pointsLabel.text = String(self.currentPoints)
         pointsLabel.textAlignment = .Center
         
