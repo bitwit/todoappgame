@@ -46,6 +46,8 @@ class TaskManager {
         
         simpleTasks = tasks.filter { $0.points == 1 }
         complexTasks = tasks.filter { $0.points > 1 }
+        
+        print("Total Tasks: (simple, complex)", simpleTasks.count, complexTasks.count)
     }
     
     func pop() -> QueuedTask {

@@ -1,5 +1,66 @@
 [
   {
+    "Take photo of invisible object": {
+      "points": 1
+    }
+  },
+  {
+    "Travel at the speed of light": {
+      "points": 1
+    }
+  },
+  {
+    "Sneeze with eyes open": {
+      "points": 1
+    }
+  },
+  {
+    "Walk on water": {
+      "points": 1
+    }
+  },
+  {
+    "Chug some boiling water": {
+      "points": 1
+    }
+  },
+  {
+    "Casually walk away from an explosion": {
+      "points": 1
+    }
+  },
+  {
+    "Create world peace": {
+      "points": 9,
+      "subtasks": [
+        "Write a song about love",
+        "Touch hearts internationally",
+        "Win Nobel Peace Prize"
+      ]
+    }
+  },
+  {
+    "Go back to highschool and be cool this time": {
+      "points": 9,
+      "subtasks": [
+        "Re-enroll in highschool",
+        "Meet a new love without it being creepy",
+        "Make prom all about you"
+      ]
+    }
+  },
+  {
+    "Stop loved one from boarding a plane": {
+      "points": 12,
+      "subtasks": [
+        "Go to Airport",
+        "Bypass security without a ticket",
+        "Profess love",
+        "Earn claps from strangers"
+      ]
+    }
+  },
+  {
     "Grow a 3ft beard": {
       "points": 9,
       "subtasks": [
