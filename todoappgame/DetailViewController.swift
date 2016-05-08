@@ -112,8 +112,18 @@ class DetailViewController: UITableViewController {
             return
         }
         
-        let cell = tableView.cellForRowAtIndexPath(indexPath) as! SubtaskCell
+        guard let cell = tableView.cellForRowAtIndexPath(indexPath) as? SubtaskCell else {
+            return
+        }
+        
+        guard cell.tag == 0 else {
+            return //we already selected this cell
+        }
+        
+        cell.tag = 1
         cell.checkboxImageView.image = UIImage(named: "checkbox-done")
+        
+        Chirp.sharedManager.playSoundType(.Checkmark)
         
         completedDictionary[indexPath.row] = true
         

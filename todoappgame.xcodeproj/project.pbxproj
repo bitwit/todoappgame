@@ -58,6 +58,7 @@
 		75ED7C921CDFAE9500A3D90C /* Hints.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75ED7C911CDFAE9500A3D90C /* Hints.xib */; };
 		75ED7C941CDFB17300A3D90C /* HintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ED7C931CDFB17300A3D90C /* HintView.swift */; };
 		75ED7C961CDFD6C500A3D90C /* InsetLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ED7C951CDFD6C500A3D90C /* InsetLabel.swift */; };
+		75ED7C981CDFDABC00A3D90C /* click_06.wav in Resources */ = {isa = PBXBuildFile; fileRef = 75ED7C971CDFDABC00A3D90C /* click_06.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -115,6 +116,7 @@
 		75ED7C911CDFAE9500A3D90C /* Hints.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Hints.xib; sourceTree = "<group>"; };
 		75ED7C931CDFB17300A3D90C /* HintView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HintView.swift; sourceTree = "<group>"; };
 		75ED7C951CDFD6C500A3D90C /* InsetLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsetLabel.swift; sourceTree = "<group>"; };
+		75ED7C971CDFDABC00A3D90C /* click_06.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = click_06.wav; sourceTree = "<group>"; };
 		F0466DA7D813C19DC4CD9CE5 /* Pods-todoappgame.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-todoappgame.release.xcconfig"; path = "Pods/Target Support Files/Pods-todoappgame/Pods-todoappgame.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -251,6 +253,7 @@
 		7543C96C1CDD538100E0E180 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				75ED7C971CDFDABC00A3D90C /* click_06.wav */,
 				755186991CDEEFF200B8AF56 /* chime_lite_ding_hi2.wav */,
 				755186971CDEEEEA00B8AF56 /* chime_clickbell_octave_lo.wav */,
 				755186951CDEED9500B8AF56 /* chime_clickbell_question.wav */,
@@ -392,6 +395,7 @@
 				7543C9731CDD539400E0E180 /* chime_game_over.wav in Resources */,
 				7543C9761CDD539400E0E180 /* chime_start.wav in Resources */,
 				750DF2BB1CDCEA7E0085CB22 /* data.yml in Resources */,
+				75ED7C981CDFDABC00A3D90C /* click_06.wav in Resources */,
 				755186961CDEED9500B8AF56 /* chime_clickbell_question.wav in Resources */,
 				7543C9721CDD539400E0E180 /* chime_done.wav in Resources */,
 				750DF2BD1CDCEBE40085CB22 /* data.json in Resources */,

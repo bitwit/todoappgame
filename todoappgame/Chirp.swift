@@ -8,6 +8,7 @@ public enum SoundType:String {
     case Point = "chime_point"
     case Done = "chime_done"
     case Settings = "chime_clickbell_question"
+    case Checkmark = "click_06"
     case Save = "chime_clickbell_octave_lo"
     case StageUp = "chime_lite_ding_hi2"
     case Error = "etc_error_swipe_1x"
