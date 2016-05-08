@@ -97,6 +97,9 @@ class DetailViewController: UITableViewController {
         
             let cell = tableView.dequeueReusableCellWithIdentifier("SubtaskCell", forIndexPath: indexPath) as! SubtaskCell
             cell.titleLabel.text = detailItem?.subtasks[indexPath.row]
+            cell.checkboxImageView.layer.borderColor = UIColor.grayColor().CGColor
+            cell.checkboxImageView.layer.borderWidth = 1
+            cell.checkboxImageView.image = UIImage(named: "checkbox-empty")
             return cell
         }
     }
