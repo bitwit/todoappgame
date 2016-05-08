@@ -13,6 +13,7 @@ enum NotificationType: String {
     case AddTask = "shouldAddTask"
     case TaskCompletion = "taskDidComplete"
     case IncrementPoints = "shouldIncrementPointsDisplay"
+    case DecrementPoints = "shouldDecrementPointsDisplay"
 }
 
 struct Notifications {

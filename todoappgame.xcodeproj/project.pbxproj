@@ -42,6 +42,10 @@
 		7543C9761CDD539400E0E180 /* chime_start.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7543C9711CDD539400E0E180 /* chime_start.wav */; };
 		7543C9781CDD53A900E0E180 /* Chirp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543C9771CDD53A900E0E180 /* Chirp.swift */; };
 		7543C97B1CDD66AE00E0E180 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543C97A1CDD66AE00E0E180 /* TaskCell.swift */; };
+		755186941CDEE61B00B8AF56 /* etc_error_swipe_1x.wav in Resources */ = {isa = PBXBuildFile; fileRef = 755186931CDEE61B00B8AF56 /* etc_error_swipe_1x.wav */; };
+		755186961CDEED9500B8AF56 /* chime_clickbell_question.wav in Resources */ = {isa = PBXBuildFile; fileRef = 755186951CDEED9500B8AF56 /* chime_clickbell_question.wav */; };
+		755186981CDEEEEA00B8AF56 /* chime_clickbell_octave_lo.wav in Resources */ = {isa = PBXBuildFile; fileRef = 755186971CDEEEEA00B8AF56 /* chime_clickbell_octave_lo.wav */; };
+		7551869A1CDEEFF200B8AF56 /* chime_lite_ding_hi2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 755186991CDEEFF200B8AF56 /* chime_lite_ding_hi2.wav */; };
 		756085501CDC36C1000B4199 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7560854F1CDC36C1000B4199 /* AppDelegate.swift */; };
 		756085531CDC36C1000B4199 /* todoappgame.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 756085511CDC36C1000B4199 /* todoappgame.xcdatamodeld */; };
 		756085551CDC36C2000B4199 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756085541CDC36C2000B4199 /* MasterViewController.swift */; };
@@ -89,6 +93,10 @@
 		7543C9711CDD539400E0E180 /* chime_start.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = chime_start.wav; sourceTree = "<group>"; };
 		7543C9771CDD53A900E0E180 /* Chirp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chirp.swift; sourceTree = "<group>"; };
 		7543C97A1CDD66AE00E0E180 /* TaskCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
+		755186931CDEE61B00B8AF56 /* etc_error_swipe_1x.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = etc_error_swipe_1x.wav; sourceTree = "<group>"; };
+		755186951CDEED9500B8AF56 /* chime_clickbell_question.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = chime_clickbell_question.wav; sourceTree = "<group>"; };
+		755186971CDEEEEA00B8AF56 /* chime_clickbell_octave_lo.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = chime_clickbell_octave_lo.wav; sourceTree = "<group>"; };
+		755186991CDEEFF200B8AF56 /* chime_lite_ding_hi2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = chime_lite_ding_hi2.wav; sourceTree = "<group>"; };
 		7560854C1CDC36C1000B4199 /* todoappgame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = todoappgame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7560854F1CDC36C1000B4199 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		756085521CDC36C1000B4199 /* todoappgame.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = todoappgame.xcdatamodel; sourceTree = "<group>"; };
@@ -232,6 +240,10 @@
 		7543C96C1CDD538100E0E180 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				755186991CDEEFF200B8AF56 /* chime_lite_ding_hi2.wav */,
+				755186971CDEEEEA00B8AF56 /* chime_clickbell_octave_lo.wav */,
+				755186951CDEED9500B8AF56 /* chime_clickbell_question.wav */,
+				755186931CDEE61B00B8AF56 /* etc_error_swipe_1x.wav */,
 				7543C96D1CDD539400E0E180 /* chime_done.wav */,
 				7543C96E1CDD539400E0E180 /* chime_game_over.wav */,
 				7543C96F1CDD539400E0E180 /* chime_pause.wav */,
@@ -351,11 +363,15 @@
 			files = (
 				7543C9641CDD27C700E0E180 /* GameStatusView.xib in Resources */,
 				7560855F1CDC36C2000B4199 /* LaunchScreen.storyboard in Resources */,
+				7551869A1CDEEFF200B8AF56 /* chime_lite_ding_hi2.wav in Resources */,
+				755186941CDEE61B00B8AF56 /* etc_error_swipe_1x.wav in Resources */,
 				7543C9751CDD539400E0E180 /* chime_point.wav in Resources */,
+				755186981CDEEEEA00B8AF56 /* chime_clickbell_octave_lo.wav in Resources */,
 				7560855C1CDC36C2000B4199 /* Assets.xcassets in Resources */,
 				7543C9731CDD539400E0E180 /* chime_game_over.wav in Resources */,
 				7543C9761CDD539400E0E180 /* chime_start.wav in Resources */,
 				750DF2BB1CDCEA7E0085CB22 /* data.yml in Resources */,
+				755186961CDEED9500B8AF56 /* chime_clickbell_question.wav in Resources */,
 				7543C9721CDD539400E0E180 /* chime_done.wav in Resources */,
 				750DF2BD1CDCEBE40085CB22 /* data.json in Resources */,
 				7543C9741CDD539400E0E180 /* chime_pause.wav in Resources */,

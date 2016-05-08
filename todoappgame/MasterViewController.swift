@@ -11,6 +11,7 @@ class MasterViewController: UITableViewController {
     var managedObjectContext: NSManagedObjectContext? = nil
     var allTasks: Array<[String:AnyObject]>
     var possibleTasks: Array<[String:AnyObject]> = []
+    var currentMistakeCell: TaskCell? = nil
     
     // Timer
     var gameTimer: NSTimer?
@@ -32,7 +33,8 @@ class MasterViewController: UITableViewController {
         Notifications.observe(self, selector: #selector(pause), type: .Pause)
         Notifications.observe(self, selector: #selector(resume), type: .Resume)
         Notifications.observe(self, selector: #selector(endGame), type: .End)
-        Notifications.observe(self, selector: #selector(tick), type: .AddTask)
+        Notifications.observe(self, selector: #selector(addTask), type: .AddTask)
+        Notifications.observe(self, selector: #selector(tick), type: .Tick)
     }
     
     override func viewDidLoad() {
@@ -90,8 +92,11 @@ class MasterViewController: UITableViewController {
         fetchedResultsController.managedObjectContext.rollback()
         possibleTasks = allTasks.shuffle()
         
-        dismissViewControllerAnimated(true) {
+        dismissViewControllerAnimated(true, completion: nil)
         
+        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(2 * Double(NSEC_PER_SEC)))
+        dispatch_after(delayTime, dispatch_get_main_queue()) {
+            
             Game.start()
             self.insertNewObject(3)
             self.navigationController?.popToRootViewControllerAnimated(true)
@@ -122,9 +127,22 @@ class MasterViewController: UITableViewController {
         
     }
     
-    func tick() {
+    func addTask() {
         
         insertNewObject()
+    }
+    
+    func tick() {
+    
+        guard Game.stage >= 3 else {
+            
+            return
+        }
+        
+        if let cell = currentMistakeCell {
+        
+            triggerMistakeFromCell(cell)
+        }
     }
     
     
@@ -190,11 +208,8 @@ class MasterViewController: UITableViewController {
             return
         }
         
-        c.bgViewLeftImage = UIImage(named:"icon-checkmark")!
-        c.bgViewLeftColor = Colors.scheme.success
-        c.bgViewRightImage = UIImage(named:"icon-cog")!
-        c.bgViewRightColor = Colors.scheme.info
         c.type = .SpringRelease
+        c.revealDirection = .Both
         c.delegate = self
         
         c.titleLabel.textColor = Colors.scheme.textColor
@@ -206,11 +221,19 @@ class MasterViewController: UITableViewController {
         c.pointsLabel.textColor = Colors.scheme.textColor
         
         if task.isReadyForCompletion?.boolValue == true {
-            c.revealDirection = .Left
+            
             c.contentView.backgroundColor = Colors.scheme.base
+            c.bgViewLeftImage = UIImage(named:"icon-checkmark")!
+            c.bgViewLeftColor = Colors.scheme.success
+            c.bgViewRightImage = UIImage(named:"icon-disabled")!
+            c.bgViewRightColor = Colors.scheme.danger
         } else {
-            c.revealDirection = .Right
+            
             c.contentView.backgroundColor = Colors.scheme.info
+            c.bgViewLeftImage = UIImage(named:"icon-disabled")!
+            c.bgViewLeftColor = Colors.scheme.danger
+            c.bgViewRightImage = UIImage(named:"icon-cog")!
+            c.bgViewRightColor = Colors.scheme.info
         }
     }
     
@@ -255,7 +278,6 @@ class MasterViewController: UITableViewController {
         return _fetchedResultsController!
     }
     
-    
 }
 
 extension MasterViewController: NSFetchedResultsControllerDelegate {
@@ -295,9 +317,74 @@ extension MasterViewController: NSFetchedResultsControllerDelegate {
         self.tableView.endUpdates()
     }
     
+    func triggerMistakeFromCell(cell:TaskCell) {
+        
+        Game.onMistake()
+        Score.total -= 1
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let rootView = appDelegate.window!
+        let originPoint = CGPointMake(CGRectGetMaxX(cell.frame) - 40, cell.pointsLabel!.center.y)
+        let from = cell.pointsLabel.superview!.convertPoint(originPoint, toView: rootView)
+        
+        Chirp.sharedManager.playSoundType(.Error)
+        
+        AnimationWindow.sharedInstance.runPositionedAnimation(from, withText: "-1")
+        Notifications.post(.DecrementPoints)
+    }
+    
 }
 
 extension MasterViewController: BWSwipeRevealCellDelegate {
+    
+    func swipeCellDidSwipe(cell: BWSwipeCell) {
+        
+        currentMistakeCell = nil
+        
+        guard let taskCell = cell as? TaskCell
+            where taskCell.state != .Normal
+            else {
+                return
+        }
+        
+        guard let idx = tableView.indexPathForCell(cell),
+            let task = fetchedResultsController.fetchedObjects![idx.row] as? Task
+            else {
+                return
+        }
+        switch cell.state {
+        case .PastThresholdLeft:
+            
+            guard let isReady = task.isReadyForCompletion?.boolValue
+                where isReady
+                else {
+                    
+                    currentMistakeCell = taskCell
+                    return
+            }
+            
+        case .PastThresholdRight:
+            
+            guard let isReady = task.isReadyForCompletion?.boolValue
+                where !isReady else {
+                
+                currentMistakeCell = taskCell
+                return
+            }
+            
+        default: break
+            
+        }
+    }
+    
+    func swipeCellWillRelease(cell: BWSwipeCell) {
+        
+        if let cell = currentMistakeCell {
+        
+            triggerMistakeFromCell(cell)
+            currentMistakeCell = nil
+        }
+    }
     
     func swipeCellDidCompleteRelease(cell: BWSwipeCell) {
         
@@ -307,11 +394,17 @@ extension MasterViewController: BWSwipeRevealCellDelegate {
                 return
         }
         
+        guard let idx = tableView.indexPathForCell(cell),
+            let task = fetchedResultsController.fetchedObjects![idx.row] as? Task
+            else {
+                return
+        }
+        
         switch cell.state {
         case .PastThresholdLeft:
             
-            guard let idx = tableView.indexPathForCell(cell),
-                let task = fetchedResultsController.fetchedObjects![idx.row] as? Task
+            guard let isReady = task.isReadyForCompletion?.boolValue
+                where isReady
                 else {
                     return
             }
@@ -330,7 +423,8 @@ extension MasterViewController: BWSwipeRevealCellDelegate {
             
             AnimationWindow.sharedInstance.runPointsAnimation(from, to: to, points:result.points)
             if result.multiplier > 1 {
-                AnimationWindow.sharedInstance.runMultiplierAnimation(from, withValue:result.multiplier)
+                
+                AnimationWindow.sharedInstance.runPositionedAnimation(from, withText: "x\(result.multiplier)")
             }
             
             Chirp.sharedManager.playSoundType(.Done)
@@ -344,9 +438,15 @@ extension MasterViewController: BWSwipeRevealCellDelegate {
             
         case .PastThresholdRight:
             
-            performSegueWithIdentifier("showDetail", sender: cell)
+            if let isReady = task.isReadyForCompletion?.boolValue
+                where !isReady {
+                
+                Chirp.sharedManager.playSoundType(.Settings)
+                performSegueWithIdentifier("showDetail", sender: cell)
+            }
             
         default: break
+            
         }
         
     }

@@ -30,6 +30,7 @@ class ScoreView: UIView {
         calculatePosition()
         
         Notifications.observe(self, selector: #selector(onIncrementPointsDisplay), type: .IncrementPoints)
+        Notifications.observe(self, selector: #selector(onDecrementPointsDisplay), type: .DecrementPoints)
         Notifications.observe(self, selector: #selector(onReset), type: .Reset)
     }
     
@@ -47,15 +48,37 @@ class ScoreView: UIView {
     }
     
     func onReset() {
-        self.currentPoints = 0
-        self.pointsLabel.text = String(self.currentPoints)
+        currentPoints = 0
+        pointsLabel.text = String(currentPoints)
     }
     
     func onIncrementPointsDisplay () {
-        self.currentPoints += 1
-        self.pointsLabel.text = String(self.currentPoints)
-        self.animatePointsScaleUp()
+        currentPoints += 1
+        pointsLabel.text = String(currentPoints)
+        animatePointsScaleUp()
         Chirp.sharedManager.playSoundType(.Point)
+    }
+    
+    func onDecrementPointsDisplay () {
+        
+        currentPoints -= 1
+        pointsLabel.text = String(currentPoints)
+        shakeEffect()
+        
+        // Chirp.sharedManager.playSoundType(.Point)
+    }
+    
+    private func shakeEffect() {
+        
+        let animation = CABasicAnimation(keyPath: "position")
+        
+        animation.duration = 0.1
+        animation.repeatCount = 4
+        animation.autoreverses = true
+        animation.fromValue = NSValue(CGPoint: CGPointMake(center.x - 5, center.y))
+        animation.toValue = NSValue(CGPoint: CGPointMake(center.x + 5, center.y))
+        
+        layer.addAnimation(animation, forKey: "position")
     }
     
     func animatePointsScaleUp() {

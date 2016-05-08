@@ -7,13 +7,21 @@ public enum SoundType:String {
     case GameOver = "chime_game_over"
     case Point = "chime_point"
     case Done = "chime_done"
+    case Settings = "chime_clickbell_question"
+    case Save = "chime_clickbell_octave_lo"
+    case StageUp = "chime_lite_ding_hi2"
+    case Error = "etc_error_swipe_1x"
     
     static let preloadedSounds:[SoundType] = [
         .Start,
         .Pause,
         .GameOver,
         .Point,
-        .Done
+        .Done,
+        .Settings,
+        .Save,
+        .StageUp,
+        .Error
     ]
 }
 
@@ -26,6 +34,12 @@ public class Chirp {
     
     // MARK: - Private Variables
     private var soundIDs = [String:SystemSoundID]()
+    
+    init () {
+        for sound in SoundType.preloadedSounds {
+            self.prepareSound(sound.rawValue)
+        }
+    }
     
     // MARK: - Public
     public func prepareSound(fileName: String) -> SystemSoundID? {

@@ -36,6 +36,6 @@ class GameStatusView: UIView {
         progressView.setProgress(newProgress, animated: true)
         
         let newTaskProgress = Float(Game.timeSinceLastTaskAdded / Game.addTaskInterval)
-        nextTaskProgressView.setProgress(newTaskProgress, animated: false)
+        nextTaskProgressView.setProgress(newTaskProgress, animated: false )
     }
 }

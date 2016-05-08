@@ -25,13 +25,13 @@ struct Game {
     
     static func new() {
         
+        Chirp.sharedManager.playSoundType(.Start)
         Notifications.post(.New)
     }
     
     static func start() {
         
         Game.reset()
-        Chirp.sharedManager.playSoundType(.Start)
         Game.state = .Playing
         
         Timer.start()
@@ -120,6 +120,12 @@ struct Game {
         return result
     }
     
+    static func onMistake() {
+        
+        Game.multiplier = 1
+        Game.timeSinceLastTaskCompletion = 0
+    }
+    
     private static func evaluateCurrentStage() {
         
         let progress = Game.time / Game.maxTime
@@ -131,6 +137,7 @@ struct Game {
             let exclam = String(count: stage - 1, repeatedValue: Character("!"))
             let text = "Stage " + String(stage) + exclam
             AnimationWindow.sharedInstance.runAnnouncementAnimation(text)
+            Chirp.sharedManager.playSoundType(.StageUp)
         }
     }
 }

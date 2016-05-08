@@ -42,13 +42,13 @@ final class AnimationWindow: UIWindow {
         }
     }
     
-    func runMultiplierAnimation(from:CGPoint, withValue value:Int) {
+    func runPositionedAnimation(from:CGPoint, withText text:String) {
         
         dispatch_async(dispatch_get_main_queue()) {
             
             let label = UILabel(frame: CGRectMake(from.x - 50, from.y - 20, 100, 40))
             label.font = UIFont.systemFontOfSize(32)
-            label.text = "x\(value)"
+            label.text = text
             label.textColor = Colors.scheme.danger
             label.textAlignment = .Center
             label.alpha = 0

@@ -41,6 +41,8 @@ class DetailViewController: UITableViewController {
     }
     
     @IBAction func save() {
+        
+        Chirp.sharedManager.playSoundType(.Save)
         detailItem.isReadyForCompletion = true
         navigationController?.popViewControllerAnimated(true)
     }
