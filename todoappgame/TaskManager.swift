@@ -50,8 +50,12 @@ class TaskManager {
     
     func pop() -> QueuedTask {
         
-        // 25% chance to pop a complex task, until depleted
-        if arc4random_uniform(100) <= 25 {
+        if Game.stage < 2 { // simple tasks in stage 1 only
+            return simpleTasks.removeLast()
+        }
+        
+        // 30% chance to pop a complex task, until depleted
+        if arc4random_uniform(100) <= 30 {
             return complexTasks.popLast() ?? simpleTasks.removeLast()
         }
         

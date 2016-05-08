@@ -55,6 +55,8 @@
 		7560855F1CDC36C2000B4199 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7560855D1CDC36C2000B4199 /* LaunchScreen.storyboard */; };
 		75D51A601CDD9A2000942B20 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D51A5F1CDD9A2000942B20 /* Timer.swift */; };
 		75ED7C8F1CDF905F00A3D90C /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ED7C8E1CDF905F00A3D90C /* TaskManager.swift */; };
+		75ED7C921CDFAE9500A3D90C /* Hints.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75ED7C911CDFAE9500A3D90C /* Hints.xib */; };
+		75ED7C941CDFB17300A3D90C /* HintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ED7C931CDFB17300A3D90C /* HintView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,6 +111,8 @@
 		756085601CDC36C2000B4199 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75D51A5F1CDD9A2000942B20 /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		75ED7C8E1CDF905F00A3D90C /* TaskManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
+		75ED7C911CDFAE9500A3D90C /* Hints.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Hints.xib; sourceTree = "<group>"; };
+		75ED7C931CDFB17300A3D90C /* HintView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HintView.swift; sourceTree = "<group>"; };
 		F0466DA7D813C19DC4CD9CE5 /* Pods-todoappgame.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-todoappgame.release.xcconfig"; path = "Pods/Target Support Files/Pods-todoappgame/Pods-todoappgame.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -156,6 +160,7 @@
 		750DF2C01CDD035D0085CB22 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				75ED7C901CDFAE7F00A3D90C /* Hints */,
 				7543C9791CDD669E00E0E180 /* Cells */,
 				750DF2C61CDD08770085CB22 /* Effects */,
 				750DF2C11CDD036E0085CB22 /* ScoreView.swift */,
@@ -302,6 +307,15 @@
 			path = todoappgame;
 			sourceTree = "<group>";
 		};
+		75ED7C901CDFAE7F00A3D90C /* Hints */ = {
+			isa = PBXGroup;
+			children = (
+				75ED7C911CDFAE9500A3D90C /* Hints.xib */,
+				75ED7C931CDFB17300A3D90C /* HintView.swift */,
+			);
+			name = Hints;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -364,6 +378,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75ED7C921CDFAE9500A3D90C /* Hints.xib in Resources */,
 				7543C9641CDD27C700E0E180 /* GameStatusView.xib in Resources */,
 				7560855F1CDC36C2000B4199 /* LaunchScreen.storyboard in Resources */,
 				7551869A1CDEEFF200B8AF56 /* chime_lite_ding_hi2.wav in Resources */,
@@ -444,6 +459,7 @@
 				7529C1471CDE3E6100EC2E5F /* SaveCell.swift in Sources */,
 				7543C9781CDD53A900E0E180 /* Chirp.swift in Sources */,
 				750DF2C21CDD036E0085CB22 /* ScoreView.swift in Sources */,
+				75ED7C941CDFB17300A3D90C /* HintView.swift in Sources */,
 				7543C93C1CDD1A1C00E0E180 /* GameOverViewController.swift in Sources */,
 				756085531CDC36C1000B4199 /* todoappgame.xcdatamodeld in Sources */,
 				7529C14F1CDEB49E00EC2E5F /* Score.swift in Sources */,

@@ -84,25 +84,49 @@ final class AnimationWindow: UIWindow {
             label.text = text
             label.textColor = Colors.scheme.danger
             label.textAlignment = .Center
-            label.alpha = 0
-            self.rootViewController!.view.addSubview(label)
             
-            UIView.animateWithDuration(0.2, animations: {
-                
-                label.alpha = 1
-                label.transform = CGAffineTransformMakeTranslation(0, -4)
-                
-                }, completion: { _ in
-                    
-                    UIView.animateWithDuration(2, animations: {
-                        
-                        label.alpha = 0
-                        label.transform = CGAffineTransformMakeTranslation(0, -20)
-                        }, completion: { _ in
-                            label.removeFromSuperview()
-                    })
-            })
+            self.temporarilyShowView(label, duration: 2)
         }
+    }
+    
+    func runHintDisplay(identifier:String) {
+        
+        dispatch_async(dispatch_get_main_queue()) {
+        
+            let nib = NSBundle.mainBundle().loadNibNamed("Hints", owner: nil, options: nil)
+            for object in nib {
+                if let o = object as? HintView where o.restorationIdentifier == identifier {
+                    
+                    let screenRect = UIScreen.mainScreen().bounds
+                    o.center = CGPointMake(CGRectGetMidX(screenRect), CGRectGetMidY(screenRect))
+                    o.animateImage()
+                    self.temporarilyShowView(o, duration: 4)
+                    break
+                }
+            }
+        }
+    }
+    
+    func temporarilyShowView(view:UIView, duration:Double) {
+        
+        view.alpha = 0
+        self.rootViewController!.view.addSubview(view)
+        
+        UIView.animateWithDuration(0.2, animations: {
+            
+            view.alpha = 1
+            view.transform = CGAffineTransformMakeTranslation(0, -4)
+            
+            }, completion: { _ in
+                
+                UIView.animateWithDuration(duration, animations: {
+                    
+                    view.alpha = 0
+                    view.transform = CGAffineTransformMakeTranslation(0, -20)
+                    }, completion: { _ in
+                        view.removeFromSuperview()
+                })
+        })
     }
     
 }

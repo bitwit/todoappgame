@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" restorationIdentifier="hint1" id="iN0-l3-epB" userLabel="hint1" customClass="HintView" customModule="todoappgame" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="240" height="80"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe easy tasks to the right" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jq8-s7-vhw">
+                    <rect key="frame" x="0.0" y="51" width="240" height="29"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="29" id="j3A-Y7-Lgh"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-tablet" translatesAutoresizingMaskIntoConstraints="NO" id="O8E-UY-uGp">
+                    <rect key="frame" x="105" y="8" width="30" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="P8j-fx-YBQ"/>
+                        <constraint firstAttribute="height" constant="44" id="Zpu-od-NUU"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-pointer" translatesAutoresizingMaskIntoConstraints="NO" id="nR0-xA-5FW">
+                    <rect key="frame" x="79" y="26" width="24" height="28"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="24" id="Wvd-Lt-3in"/>
+                        <constraint firstAttribute="height" constant="28" id="q1b-SF-Mh3"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="jq8-s7-vhw" secondAttribute="bottom" id="2JR-PU-yEv"/>
+                <constraint firstItem="O8E-UY-uGp" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="4J8-C2-MLW"/>
+                <constraint firstItem="jq8-s7-vhw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="HDA-pM-gIG"/>
+                <constraint firstAttribute="trailing" secondItem="jq8-s7-vhw" secondAttribute="trailing" id="dFs-mA-UKa"/>
+                <constraint firstItem="nR0-xA-5FW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="26" id="nD3-PM-m5T"/>
+                <constraint firstItem="O8E-UY-uGp" firstAttribute="leading" secondItem="nR0-xA-5FW" secondAttribute="trailing" constant="2" id="s64-rq-VCg"/>
+                <constraint firstItem="O8E-UY-uGp" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="smC-Od-05b"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="animateableImageView" destination="nR0-xA-5FW" id="wCA-3T-R9C"/>
+            </connections>
+            <point key="canvasLocation" x="157" y="122"/>
+        </view>
+        <view contentMode="scaleToFill" restorationIdentifier="hint2" id="Jov-CM-i7Q" userLabel="hint2" customClass="HintView" customModule="todoappgame" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="240" height="80"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe complex tasks left" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ezl-2d-Hrl">
+                    <rect key="frame" x="0.0" y="51" width="240" height="29"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="29" id="4Hi-YV-yFm"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-tablet" translatesAutoresizingMaskIntoConstraints="NO" id="Hwc-TE-KOh">
+                    <rect key="frame" x="105" y="8" width="30" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="1JZ-l1-hjs"/>
+                        <constraint firstAttribute="height" constant="44" id="xwC-dY-FkL"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-pointer" translatesAutoresizingMaskIntoConstraints="NO" id="Ehl-Ob-A52">
+                    <rect key="frame" x="136" y="26" width="24" height="28"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="24" id="7K9-OP-zcm"/>
+                        <constraint firstAttribute="height" constant="28" id="yrb-nf-Sww"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Ezl-2d-Hrl" firstAttribute="leading" secondItem="Jov-CM-i7Q" secondAttribute="leading" id="9zX-fh-2oa"/>
+                <constraint firstItem="Ehl-Ob-A52" firstAttribute="leading" secondItem="Hwc-TE-KOh" secondAttribute="trailing" constant="1" id="Bko-LB-T9D"/>
+                <constraint firstAttribute="bottom" secondItem="Ezl-2d-Hrl" secondAttribute="bottom" id="CXe-gB-eJJ"/>
+                <constraint firstItem="Ehl-Ob-A52" firstAttribute="top" secondItem="Jov-CM-i7Q" secondAttribute="top" constant="26" id="HyP-Ti-5Tp"/>
+                <constraint firstAttribute="trailing" secondItem="Ezl-2d-Hrl" secondAttribute="trailing" id="aB6-tW-nHC"/>
+                <constraint firstItem="Hwc-TE-KOh" firstAttribute="centerX" secondItem="Jov-CM-i7Q" secondAttribute="centerX" id="kHS-1y-9ES"/>
+                <constraint firstItem="Hwc-TE-KOh" firstAttribute="top" secondItem="Jov-CM-i7Q" secondAttribute="top" constant="8" id="mpi-U0-fT4"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="animateableImageView" destination="Ehl-Ob-A52" id="6S2-UN-8su"/>
+            </connections>
+            <point key="canvasLocation" x="157" y="122"/>
+        </view>
+        <view contentMode="scaleToFill" restorationIdentifier="hint3" id="aey-mg-FoC" userLabel="hint3" customClass="HintView" customModule="todoappgame" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="240" height="80"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe multiple rows for combos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h70-6R-cTm">
+                    <rect key="frame" x="0.0" y="51" width="240" height="29"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="29" id="7Ew-7U-EcV"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-tablet" translatesAutoresizingMaskIntoConstraints="NO" id="RBI-Jh-tfo">
+                    <rect key="frame" x="105" y="8" width="30" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="8II-wA-odC"/>
+                        <constraint firstAttribute="width" constant="30" id="vU3-lg-BdX"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-hand" translatesAutoresizingMaskIntoConstraints="NO" id="2Gc-SW-tRd">
+                    <rect key="frame" x="75" y="26" width="28" height="23"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="23" id="0iT-SQ-R3f"/>
+                        <constraint firstAttribute="width" constant="28" id="oAQ-4x-2Ud"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="2Gc-SW-tRd" firstAttribute="top" secondItem="aey-mg-FoC" secondAttribute="top" constant="26" id="SpF-9F-Imk"/>
+                <constraint firstItem="RBI-Jh-tfo" firstAttribute="leading" secondItem="2Gc-SW-tRd" secondAttribute="trailing" constant="2" id="Wc2-4E-2xW"/>
+                <constraint firstAttribute="bottom" secondItem="h70-6R-cTm" secondAttribute="bottom" id="Xdt-on-Xff"/>
+                <constraint firstItem="h70-6R-cTm" firstAttribute="leading" secondItem="aey-mg-FoC" secondAttribute="leading" id="ePH-e7-5Ke"/>
+                <constraint firstItem="RBI-Jh-tfo" firstAttribute="top" secondItem="aey-mg-FoC" secondAttribute="top" constant="8" id="gMD-mf-eTK"/>
+                <constraint firstItem="RBI-Jh-tfo" firstAttribute="centerX" secondItem="aey-mg-FoC" secondAttribute="centerX" id="k7d-KF-Yvp"/>
+                <constraint firstAttribute="trailing" secondItem="h70-6R-cTm" secondAttribute="trailing" id="l2w-Y7-0K4"/>
+                <constraint firstItem="RBI-Jh-tfo" firstAttribute="leading" secondItem="2Gc-SW-tRd" secondAttribute="trailing" constant="2" id="ueB-Nk-FYw"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="animateableImageView" destination="2Gc-SW-tRd" id="t3E-zr-77O"/>
+            </connections>
+            <point key="canvasLocation" x="157" y="122"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon-hand" width="28" height="23"/>
+        <image name="icon-pointer" width="24" height="28"/>
+        <image name="icon-tablet" width="30" height="44"/>
+    </resources>
+</document>
